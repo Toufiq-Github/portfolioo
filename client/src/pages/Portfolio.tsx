@@ -7,6 +7,7 @@ import { Timeline } from "@/components/Timeline";
 import { useProjects, useSkills, useTimeline } from "@/hooks/use-portfolio";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 
 export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
@@ -45,14 +46,14 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    I'm a passionate developer based in Dhaka, Bangladesh. My journey in tech started with a curiosity about how things work on the web, which evolved into a career building robust applications.
+                    I'm a passionate Computer Science student based in Dhaka, Bangladesh. My journey in tech started with a curiosity about how things work on the web, which evolved into a career building robust applications.
                   </p>
                   <p>
-                    I specialize in the React ecosystem and modern backend technologies. When I'm not coding, I'm creating educational content on YouTube or contributing to open-source projects.
+                    I specialize in the React ecosystem and modern machine learning technologies. When I'm not coding, I'm creating educational content on YouTube or contributing to research projects.
                   </p>
                   <div className="grid grid-cols-3 gap-4 mt-8">
                     <div className="text-center p-4 bg-card rounded-lg border border-border">
-                      <h4 className="text-2xl font-bold text-primary">3+</h4>
+                      <h4 className="text-2xl font-bold text-primary">5+</h4>
                       <span className="text-xs text-muted-foreground uppercase tracking-wider">Years Exp</span>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg border border-border">
@@ -60,7 +61,7 @@ export default function Portfolio() {
                       <span className="text-xs text-muted-foreground uppercase tracking-wider">Projects</span>
                     </div>
                     <div className="text-center p-4 bg-card rounded-lg border border-border">
-                      <h4 className="text-2xl font-bold text-primary">500+</h4>
+                      <h4 className="text-2xl font-bold text-primary">100+</h4>
                       <span className="text-xs text-muted-foreground uppercase tracking-wider">Commits</span>
                     </div>
                   </div>
@@ -68,9 +69,9 @@ export default function Portfolio() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl rotate-3 opacity-20" />
                   <img 
-                    src="https://pixabay.com/get/g8767ace888ae3cd763428bce21157faf8871ced29db444c86bd199fb6a01438636b2eac9886eab621e1092f8e01480f76d363e1498e146689b2200f64b96a25b_1280.jpg" 
-                    alt="Working" 
-                    className="relative rounded-2xl shadow-2xl border border-white/10" 
+                    src={aboutPhoto} 
+                    alt="Shafaeat Hasan Toufiq" 
+                    className="relative rounded-2xl shadow-2xl border border-white/10 w-full" 
                   />
                 </div>
               </div>

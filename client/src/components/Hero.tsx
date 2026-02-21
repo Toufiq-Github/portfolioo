@@ -3,6 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-scroll";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import profileHero from "@assets/Profile_Photo_Crop_1771706616948.png";
 
 export function Hero() {
   return (
@@ -24,17 +25,17 @@ export function Hero() {
             👋 Hello, I'm
           </span>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Shohag <span className="text-gradient">Kumar</span>
+            Shafaeat <span className="text-gradient">Hasan Toufiq</span>
           </h1>
           
           <div className="text-xl md:text-2xl font-mono text-muted-foreground mb-6 h-[60px] md:h-auto">
             <TypeAnimation
               sequence={[
-                'Full Stack Developer',
+                'Computer Science Student',
                 2000,
-                'UI/UX Designer',
+                'Data Science Major',
                 2000,
-                'React Enthusiast',
+                'Machine Learning Enthusiast',
                 2000,
               ]}
               wrapper="span"
@@ -83,11 +84,10 @@ export function Hero() {
           <div className="relative w-72 h-72 md:w-96 md:h-96">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-[2rem] rotate-6 opacity-20 animate-pulse" />
             <div className="absolute inset-0 bg-card rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
-              {/* Unsplash tech image for hero */}
               <img 
-                src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" 
-                alt="Profile" 
-                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500 hover:scale-105 transform"
+                src={profileHero} 
+                alt="Shafaeat Hasan Toufiq" 
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 transform"
               />
             </div>
           </div>
