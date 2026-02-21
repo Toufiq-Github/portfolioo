@@ -1,0 +1,125 @@
+Pick the Right Stack (Don’t Overcomplicate)
+
+If you’re serious:
+
+Frontend: Next.js
+
+Styling: Tailwind CSS
+
+Hosting: Vercel
+
+Why?
+
+Fast
+
+Modern
+
+Recruiters respect it
+
+Easy to deploy
+
+If you just want simple: plain React + Tailwind is fine.
+
+Step 3: Create a Real Structure (Not Random Sections)
+
+Your portfolio must have:
+
+Hero (Clear value proposition)
+
+About (Not biography. Skills + impact.)
+
+Projects (Main focus)
+
+Skills (Grouped properly)
+
+Experience / Education
+
+Contact
+
+Anything extra is noise.
+
+Step 4: Vibe Coding Strategy (How to Prompt Properly)
+
+Bad prompting:
+
+"Make me a portfolio website"
+
+That gives garbage.
+
+Good prompting:
+
+Prompt 1 – Architecture
+Act as a senior frontend engineer.
+Generate a clean folder structure for a Next.js portfolio website.
+It must include:
+- reusable components
+- SEO setup
+- responsive layout
+- dark/light mode
+- performance optimization
+Explain briefly why each folder exists.
+
+Prompt 2 – Hero Section
+Create a modern minimal hero section for a CSE student focused on algorithms and backend systems.
+Use Tailwind.
+Make it bold and not generic.
+Include:
+- headline
+- short value proposition
+- CTA buttons
+- subtle animation
+
+Prompt 3 – Projects Section
+Create a projects section optimized for recruiters.
+Each project card must include:
+- problem
+- solution
+- tech stack
+- measurable result
+Make it grid-based and responsive.
+
+
+You iterate section by section.
+
+Step 5: Make It Recruiter-Oriented
+
+Brutal truth:
+Recruiters don’t care about:
+
+“Passionate developer”
+
+“Hardworking student”
+
+Random animations
+
+They care about:
+
+What you built
+
+What problem you solved
+
+Tech depth
+
+Impact
+
+So your project description should look like:
+
+Built a menu-driven C++ dictionary using Binary Search Tree, reducing average search time from O(n) to O(log n).
+
+That’s strong.
+
+Step 6: Optimize It Like a Pro
+
+Add:
+
+Proper metadata (title, description, OG tags)
+
+Lazy loading images
+
+Lighthouse score > 90
+
+Clean typography
+
+No heavy unnecessary libraries
+
+Run Lighthouse in Chrome. Fix red flags.
