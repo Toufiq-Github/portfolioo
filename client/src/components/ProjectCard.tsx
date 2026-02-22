@@ -32,15 +32,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
               {project.title}
             </h3>
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-2">
+                {project.githubUrl && (
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Github className="w-5 h-5" />
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                )}
+              </div>
               {project.githubUrl && (
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Github className="w-5 h-5" />
-                </a>
-              )}
-              {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                  <ExternalLink className="w-5 h-5" />
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-md text-xs font-semibold transition-all"
+                >
+                  <Github className="w-3.5 h-3.5" /> View on GitHub
                 </a>
               )}
             </div>

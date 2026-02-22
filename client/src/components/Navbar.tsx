@@ -4,12 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
+
 const navLinks = [
   { name: "Home", to: "hero" },
   { name: "About", to: "about" },
   { name: "Skills", to: "skills" },
   { name: "Projects", to: "projects" },
   { name: "Experience", to: "timeline" },
+  { name: "YouTube", to: "youtube" },
   { name: "Contact", to: "contact" },
 ];
 
@@ -60,13 +63,23 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Button 
-            variant="outline" 
-            className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-all hover:scale-105"
-            onClick={() => window.open('/resume.pdf', '_blank')}
-          >
-            Resume
-          </Button>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <FaGithub className="w-5 h-5" />
+            </a>
+            <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <FaLinkedin className="w-5 h-5" />
+            </a>
+            <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <FaYoutube className="w-5 h-5" />
+            </a>
+            <Button 
+              className="bg-gradient-to-r from-primary to-secondary text-white hover:scale-105 transition-all shadow-lg shadow-primary/20"
+              onClick={() => window.open('/resume.pdf', '_blank')}
+            >
+              Shafaeat
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Toggle */}

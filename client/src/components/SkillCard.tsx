@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { Skill } from "@shared/schema";
-import { SiReact, SiNodedotjs, SiTypescript, SiPython, SiDocker, SiPostgresql, SiJavascript, SiHtml5, SiCss3, SiGit } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiTypescript, SiPython, SiDocker, SiPostgresql, SiJavascript, SiHtml5, SiCss3, SiGit, SiMongodb, SiMysql, SiLinux, SiOracle, SiExpress, SiCplusplus, SiOpenjdk, SiTensorflow } from "react-icons/si";
 
 // Map icon strings to components
 const iconMap: Record<string, React.ElementType> = {
@@ -13,7 +13,28 @@ const iconMap: Record<string, React.ElementType> = {
   "SiJavascript": SiJavascript,
   "SiHtml5": SiHtml5,
   "SiCss3": SiCss3,
-  "SiGit": SiGit
+  "SiGit": SiGit,
+  "SiMongodb": SiMongodb,
+  "SiMysql": SiMysql,
+  "SiLinux": SiLinux,
+  "SiOracle": SiOracle,
+  "SiExpress": SiExpress,
+  "SiCplusplus": SiCplusplus,
+  "SiOpenjdk": SiOpenjdk,
+  "SiTensorflow": SiTensorflow,
+  "ExpressJS": SiExpress,
+  "MongoDB": SiMongodb,
+  "MySQL": SiMysql,
+  "Oracle": SiOracle,
+  "Linux": SiLinux,
+  "C++": SiCplusplus,
+  "Java": SiOpenjdk,
+  "Python": SiPython,
+  "JavaScript": SiJavascript,
+  "React": SiReact,
+  "Node.js": SiNodedotjs,
+  "TensorFlow": SiTensorflow,
+  "Git": SiGit
 };
 
 interface SkillCardProps {

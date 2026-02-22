@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-scroll";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import profileHero from "@assets/Profile_Photo_Crop_1771706616948.png";
 
 export function Hero() {
@@ -62,15 +62,15 @@ export function Hero() {
           </div>
 
           <div className="mt-10 flex items-center justify-center md:justify-start gap-6">
-            {[FaGithub, FaLinkedin, FaTwitter].map((Icon, idx) => (
-              <a 
-                key={idx}
-                href="#"
-                className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200"
-              >
-                <Icon />
-              </a>
-            ))}
+            <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
+              <FaLinkedin />
+            </a>
+            <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
+              <FaYoutube />
+            </a>
           </div>
         </motion.div>
 
