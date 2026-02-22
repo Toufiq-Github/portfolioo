@@ -12,7 +12,7 @@ export function Hero() {
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] -z-10" />
 
-      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto px-12 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
         
         {/* Text Content */}
         <motion.div 
@@ -24,14 +24,14 @@ export function Hero() {
           <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
             👋 Hello, I'm
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Shafaeat <span className="text-gradient">Hasan Toufiq</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">
+            Shafaeat Hasan Toufiq
           </h1>
           
           <div className="text-xl md:text-2xl font-mono text-muted-foreground mb-6 h-[60px] md:h-auto">
             <TypeAnimation
               sequence={[
-                'Computer Science Student',
+                'Web Developer',
                 2000,
                 'Data Science Major',
                 2000,

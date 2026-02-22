@@ -34,14 +34,14 @@ export function Navbar() {
         scrolled ? "glass-nav py-4 shadow-lg shadow-primary/5" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-12 lg:px-24 flex items-center justify-between">
         <Link 
           to="hero" 
           smooth={true} 
           duration={500} 
-          className="text-2xl font-bold font-poppins cursor-pointer"
+          className="text-2xl font-bold font-poppins cursor-pointer text-white"
         >
-          Shohag<span className="text-primary">.dev</span>
+          Shafaeat
         </Link>
 
         {/* Desktop Nav */}
