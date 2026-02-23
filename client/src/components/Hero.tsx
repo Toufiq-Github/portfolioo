@@ -54,23 +54,22 @@ export function Hero() {
                 View My Work
               </Button>
             </Link>
+            <div className="flex items-center gap-4">
+              <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <FaGithub className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+              <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <FaYoutube className="w-5 h-5" />
+              </a>
+            </div>
             <Link to="contact" smooth={true} duration={500} offset={-80}>
               <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
                 Contact Me
               </Button>
             </Link>
-          </div>
-
-          <div className="mt-10 flex items-center justify-center md:justify-start gap-6">
-            <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
-              <FaGithub />
-            </a>
-            <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
-              <FaLinkedin />
-            </a>
-            <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform duration-200">
-              <FaYoutube />
-            </a>
           </div>
         </motion.div>
 

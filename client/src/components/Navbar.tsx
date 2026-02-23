@@ -63,23 +63,12 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <FaGithub className="w-5 h-5" />
-            </a>
-            <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <FaLinkedin className="w-5 h-5" />
-            </a>
-            <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <FaYoutube className="w-5 h-5" />
-            </a>
-            <Button 
-              className="bg-gradient-to-r from-primary to-secondary text-white hover:scale-105 transition-all shadow-lg shadow-primary/20"
-              onClick={() => window.open('/resume.pdf', '_blank')}
-            >
-              Shafaeat
-            </Button>
-          </div>
+          <Button 
+            className="bg-gradient-to-r from-primary to-secondary text-white hover:scale-105 transition-all shadow-lg shadow-primary/20"
+            onClick={() => window.open('/resume.pdf', '_blank')}
+          >
+            Resume
+          </Button>
         </div>
 
         {/* Mobile Toggle */}

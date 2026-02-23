@@ -45,7 +45,7 @@ export default function Portfolio() {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
+                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
                     Hello! I'm <span className="text-primary font-semibold">Shafaeat Hasan Toufiq</span>. I have completed my Bachelor's degree in Computer Science & Engineering at East West University, Dhaka. I have a strong foundation in programming with a growing interest in machine learning and software development.
                   </p>
@@ -175,7 +175,7 @@ export default function Portfolio() {
                 className="bg-card border border-border/50 rounded-xl overflow-hidden shadow-lg"
               >
                 <div className="aspect-video relative group cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s', '_blank')}>
-                  <img src="https://img.youtube.com/vi/vb7j0lC1Z6s/maxresdefault.jpg" alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                  <img src="https://ibb.co.com/C41vCwk" alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
                     <FaYoutube className="text-6xl text-red-600" />
                   </div>
@@ -191,7 +191,7 @@ export default function Portfolio() {
                 className="bg-card border border-border/50 rounded-xl overflow-hidden shadow-lg"
               >
                 <div className="aspect-video relative group cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q', '_blank')}>
-                  <img src="https://img.youtube.com/vi/NDYY6tix2-Q/maxresdefault.jpg" alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                  <img src="https://ibb.co.com/VWLV2kRj" alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
                     <FaYoutube className="text-6xl text-red-600" />
                   </div>
@@ -227,42 +227,77 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center"
+              className="max-w-6xl mx-auto"
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Get in <span className="text-gradient">Touch</span>
-              </h2>
-              <p className="text-muted-foreground text-xl mb-12">
-                Feel free to reach out for collaborations or just a friendly hello!
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <div className="bg-card border border-border/50 p-8 rounded-2xl shadow-xl">
-                  <FaEnvelope className="text-4xl text-primary mx-auto mb-4" />
-                  <h4 className="text-xl font-bold mb-2 text-white">Email</h4>
-                  <a href="mailto:safaeathasantoufiq@gmail.com" className="text-primary hover:underline text-lg">
-                    safaeathasantoufiq@gmail.com
-                  </a>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                {/* Left Side: Previous Style Info */}
+                <div className="space-y-8">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                    Let's work <br />
+                    <span className="text-gradient">together.</span>
+                  </h2>
+                  <p className="text-muted-foreground text-lg max-w-md">
+                    I'm currently available for freelance projects and open to full-time opportunities. If you have a project that needs some creative touch, let's chat.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-6 group">
+                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/5">
+                        <FaEnvelope className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg">Email</h4>
+                        <a href="mailto:safaeathasantoufiq@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                          safaeathasantoufiq@gmail.com
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-6 group">
+                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/5">
+                        <FaMapMarkerAlt className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg">Location</h4>
+                        <p className="text-muted-foreground">Dhaka, Bangladesh</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-card border border-border/50 p-8 rounded-2xl shadow-xl">
-                  <FaMapMarkerAlt className="text-4xl text-primary mx-auto mb-4" />
-                  <h4 className="text-xl font-bold mb-2 text-white">Location</h4>
-                  <p className="text-muted-foreground text-lg text-white">Dhaka, Bangladesh</p>
-                </div>
-              </div>
 
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Connect With Me</h3>
-                <div className="flex justify-center gap-6">
-                  <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-card border border-border/50 rounded-full flex items-center justify-center text-3xl text-muted-foreground hover:text-primary hover:border-primary transition-all shadow-lg">
-                    <FaGithub />
-                  </a>
-                  <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-card border border-border/50 rounded-full flex items-center justify-center text-3xl text-muted-foreground hover:text-primary hover:border-primary transition-all shadow-lg">
-                    <FaLinkedin />
-                  </a>
-                  <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-card border border-border/50 rounded-full flex items-center justify-center text-3xl text-muted-foreground hover:text-primary hover:border-primary transition-all shadow-lg">
-                    <FaYoutube />
-                  </a>
+                {/* Right Side: Current Style and Text */}
+                <div className="bg-card border border-border/50 p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors" />
+                  
+                  <h2 className="text-3xl font-bold mb-6">
+                    Get in <span className="text-gradient">Touch</span>
+                  </h2>
+                  <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
+                    Feel free to reach out for collaborations or just a friendly hello!
+                  </p>
+
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-6">Connect With Me</h3>
+                      <div className="flex gap-4">
+                        <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
+                          <FaGithub />
+                        </a>
+                        <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
+                          <FaLinkedin />
+                        </a>
+                        <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
+                          <FaYoutube />
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-6 border-t border-border/50">
+                      <p className="text-sm text-muted-foreground italic">
+                        "Eager to embrace new challenges and contribute to innovative projects."
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

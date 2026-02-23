@@ -51,17 +51,22 @@ export function SkillCard({ skill, index }: SkillCardProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      className="flex flex-col items-center justify-center p-6 bg-card border border-border/50 rounded-xl hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+      whileHover={{ 
+        y: -10,
+        backgroundColor: "rgba(108, 99, 255, 0.1)",
+        borderColor: "rgba(108, 99, 255, 0.5)",
+        boxShadow: "0 10px 30px -10px rgba(108, 99, 255, 0.3)"
+      }}
+      className="flex flex-col items-center justify-center p-6 bg-card border border-border/50 rounded-xl transition-all duration-300 group"
     >
       {Icon ? (
-        <Icon className="text-4xl mb-4 text-muted-foreground hover:text-primary transition-colors duration-300" />
+        <Icon className="text-4xl mb-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
       ) : (
-        <div className="w-10 h-10 mb-4 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold">
+        <div className="w-10 h-10 mb-4 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold group-hover:bg-primary group-hover:text-white transition-all">
           {skill.name[0]}
         </div>
       )}
-      <h4 className="font-semibold text-foreground">{skill.name}</h4>
+      <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">{skill.name}</h4>
       {skill.proficiency && (
         <div className="w-full mt-3 h-1.5 bg-secondary/20 rounded-full overflow-hidden">
           <motion.div 
