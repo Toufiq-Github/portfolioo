@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import type { Project } from "@shared/schema";
 
 interface ProjectCardProps {
@@ -61,7 +62,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <Button 
                 variant="outline"
                 className="w-full group/btn border-primary/20 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
-                onClick={() => window.open(project.githubUrl, '_blank')}
+                onClick={() => window.open(project.githubUrl || '', '_blank')}
               >
                 <Github className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
                 View on GitHub
