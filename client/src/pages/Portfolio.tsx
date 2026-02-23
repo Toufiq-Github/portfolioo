@@ -126,9 +126,9 @@ export default function Portfolio() {
               <div className="max-w-2xl mx-auto bg-card p-8 rounded-2xl border border-border/50 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary mb-2">Researcher</h3>
                 <p className="text-lg text-muted-foreground mb-6">East West University</p>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-muted-foreground mb-8 text-center max-w-lg mx-auto">
                   I am a researcher focused on deep learning and healthcare applications. 
-                  My paper on retinal disease detection has been published in Data in Brief.
+                  My paper on <span className="text-primary font-semibold">Cotton Leaf Image Classification</span> using a Hybrid Deep Learning Model with Explainable AI (XAI) has been published in Data in Brief.
                 </p>
                 <Button 
                   className="bg-primary hover:bg-primary/90 text-white"
