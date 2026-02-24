@@ -48,28 +48,31 @@ export function Hero() {
             I build exceptional digital experiences that are fast, accessible, and visually stunning. Passionate about turning complex problems into simple, beautiful solutions.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <Link to="projects" smooth={true} duration={500} offset={-80}>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
-                View My Work
-              </Button>
-            </Link>
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <FaGithub className="w-5 h-5" />
+          <div className="flex flex-col items-center md:items-start gap-8">
+            <div className="flex flex-row items-center gap-4 justify-center md:justify-start">
+              <Link to="projects" smooth={true} duration={500} offset={-80}>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
+                  View My Work
+                </Button>
+              </Link>
+              <Link to="contact" smooth={true} duration={500} offset={-80}>
+                <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
+                  Contact Me
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="flex items-center gap-6 justify-center md:justify-start">
+              <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all hover:scale-110 shadow-lg">
+                <FaGithub className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <FaLinkedin className="w-5 h-5" />
+              <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all hover:scale-110 shadow-lg">
+                <FaLinkedin className="w-6 h-6" />
               </a>
-              <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <FaYoutube className="w-5 h-5" />
+              <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all hover:scale-110 shadow-lg">
+                <FaYoutube className="w-6 h-6" />
               </a>
             </div>
-            <Link to="contact" smooth={true} duration={500} offset={-80}>
-              <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
-                Contact Me
-              </Button>
-            </Link>
           </div>
         </motion.div>
 

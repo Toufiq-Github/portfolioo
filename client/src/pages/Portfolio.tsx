@@ -1,21 +1,20 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
-import { SkillCard } from "@/components/SkillCard";
+import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useSkills, useTimeline } from "@/hooks/use-portfolio";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FaYoutube, FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 
 export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
-  const { data: skills, isLoading: skillsLoading } = useSkills();
   const { data: timeline, isLoading: timelineLoading } = useTimeline();
 
-  if (projectsLoading || skillsLoading || timelineLoading) {
+  if (projectsLoading || timelineLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Loader2 className="w-10 h-10 text-primary animate-spin" />
@@ -32,13 +31,13 @@ export default function Portfolio() {
 
         {/* About Section */}
         <section id="about" className="py-24 relative">
-          <div className="container mx-auto px-12 lg:px-24">
+          <div className="container mx-auto px-4 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
+              className="w-full"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                 About <span className="text-gradient">Me</span>
@@ -61,7 +60,7 @@ export default function Portfolio() {
                   <img 
                     src={aboutPhoto} 
                     alt="Shafaeat Hasan Toufiq" 
-                    className="relative rounded-2xl shadow-2xl border border-white/10 w-full" 
+                    className="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover max-h-[500px]" 
                   />
                 </div>
               </div>
@@ -70,24 +69,7 @@ export default function Portfolio() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-24 bg-card/30">
-          <div className="container mx-auto px-12 lg:px-24">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold mb-16 text-center"
-            >
-              Technical <span className="text-gradient">Skills</span>
-            </motion.h2>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {skills?.map((skill, index) => (
-                <SkillCard key={skill.id} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <SkillsSection />
 
         {/* Projects Section */}
         <section id="projects" className="py-24">
@@ -127,7 +109,6 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-primary mb-2">Researcher</h3>
                 <p className="text-lg text-muted-foreground mb-6">East West University</p>
                 <p className="text-muted-foreground mb-8 text-center max-w-lg mx-auto">
-                  I am a researcher focused on deep learning and healthcare applications. 
                   My paper on <span className="text-primary font-semibold">Cotton Leaf Image Classification</span> using a Hybrid Deep Learning Model with Explainable AI (XAI) has been published in Data in Brief.
                 </p>
                 <Button 
@@ -286,8 +267,8 @@ export default function Portfolio() {
                         <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
                           <FaLinkedin />
                         </a>
-                        <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
-                          <FaYoutube />
+                        <a href="https://www.facebook.com/safaeat.hasan.3" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
+                          <FaFacebook />
                         </a>
                       </div>
                     </div>
