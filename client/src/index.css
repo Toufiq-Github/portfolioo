@@ -5,6 +5,29 @@
 @tailwind utilities;
 
 :root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 244 100% 69%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 190 100% 50%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 244 100% 69%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 244 100% 69%;
+  --radius: 0.75rem;
+}
+
+.dark {
   --background: 240 10% 4%; /* #0A0A0F */
   --foreground: 210 20% 98%;
   --primary: 244 100% 69%; /* #6C63FF */
@@ -22,22 +45,14 @@
   --border: 217 33% 17%;
   --input: 217 33% 17%;
   --ring: 244 100% 69%;
-  --radius: 0.75rem;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  * {
+    @apply border-border;
   }
-  
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
-    font-family: 'Inter', sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    @apply font-bold tracking-tight;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }
 
