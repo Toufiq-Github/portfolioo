@@ -1,41 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 244 100% 69%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 190 100% 50%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 244 100% 69%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 244 100% 69%;
-  --radius: 0.75rem;
-}
-
-.dark {
-  --background: 240 10% 4%; /* #0A0A0F */
+  --background: 0 0% 0%; /* Exact Black #000000 */
   --foreground: 210 20% 98%;
-  --primary: 244 100% 69%; /* #6C63FF */
-  --primary-foreground: 210 20% 98%;
-  --secondary: 190 100% 50%; /* #00D4FF */
-  --secondary-foreground: 240 10% 4%;
   --card: 222 47% 11%;
   --card-foreground: 210 20% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 244 100% 69%; /* #6C63FF - The one accent color */
+  --primary-foreground: 210 20% 98%;
+  --secondary: 244 100% 69%;
+  --secondary-foreground: 210 20% 98%;
   --muted: 215 16% 47%;
   --muted-foreground: 215 16% 65%;
   --accent: 244 100% 69%;
@@ -45,14 +29,22 @@
   --border: 217 33% 17%;
   --input: 217 33% 17%;
   --ring: 244 100% 69%;
+  --radius: 0.75rem;
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  html {
+    scroll-behavior: smooth;
   }
+  
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-300;
+    font-family: 'Satoshi', 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', 'Poppins', sans-serif;
+    @apply font-bold tracking-tight;
   }
 }
 

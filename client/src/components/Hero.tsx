@@ -24,11 +24,11 @@ export function Hero() {
           <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
             👋 Hello, I'm
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white">
             Shafaeat Hasan Toufiq
           </h1>
           
-          <div className="text-xl md:text-2xl font-mono text-muted-foreground mb-6 h-[60px] md:h-auto">
+          <div className="text-lg md:text-xl font-medium text-muted-foreground mb-6 h-[60px] md:h-auto">
             <TypeAnimation
               sequence={[
                 'Web Developer',

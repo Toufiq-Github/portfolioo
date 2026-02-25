@@ -19,12 +19,6 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") as "light" | "dark") || "dark";
-    }
-    return "dark";
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,20 +27,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   return (
     <motion.nav
@@ -62,7 +42,7 @@ export function Navbar() {
           to="hero" 
           smooth={true} 
           duration={500} 
-          className="text-2xl font-bold font-poppins cursor-pointer text-foreground"
+          className="text-2xl font-bold font-poppins cursor-pointer text-white"
         >
           Shafaeat
         </Link>
@@ -83,15 +63,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="rounded-full text-muted-foreground hover:text-primary"
-          >
-            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </Button>
 
           <Button 
             className="bg-gradient-to-r from-primary to-secondary text-white hover:scale-105 transition-all shadow-lg shadow-primary/20"
@@ -103,16 +74,8 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="flex items-center gap-4 md:hidden">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="rounded-full text-muted-foreground hover:text-primary"
-          >
-            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </Button>
           <button 
-            className="text-foreground"
+            className="text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X /> : <Menu />}
