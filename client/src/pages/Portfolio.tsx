@@ -3,15 +3,22 @@ import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
-import { useProjects, useSkills, useTimeline } from "@/hooks/use-portfolio";
+import { useProjects, useTimeline } from "@/hooks/use-portfolio";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 
-import hangmanThumb from "@assets/360_F_511071154_7bfMnKC9wucqHKyDQjYEjJs7qKcfZh7W_1772022158123.jpg";
-import dictionaryThumb from "@assets/lFzRzskAQwatNsmhjwZGAA_1772022213709.jpg";
+import ecommercePhoto from "@assets/Ecommerce_1772049675240.png";
+import retinaPhoto from "@assets/retina_1772049675238.png";
+import wordPhoto from "@assets/word_1772049657411.png";
+
+const assetMap: Record<string, string> = {
+  "Ecommerce.png": ecommercePhoto,
+  "retina.png": retinaPhoto,
+  "word.png": wordPhoto,
+};
 
 export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
@@ -44,24 +51,24 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full"
               >
-                <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">
+                <h2 className="text-4xl md:text-6xl font-medium mb-16 text-center text-white">
                   About <span className="text-primary">Me</span>
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      Hello! I'm <span className="text-white font-bold">Shafaeat Hasan Toufiq</span>. I graduated from <span className="text-primary">East West University</span> with a degree in Computer Science & Engineering.
+                      Hello! I’m <span className="text-white">Shafaeat Hasan Toufiq</span>, a passionate Computer Science student currently pursuing my Bachelor’s degree in Computer Science & Engineering at East West University, Dhaka. I have a strong foundation in programming with a growing interest in machine learning and software development.
                     </p>
                     <p>
-                      I specialize in building robust software solutions and exploring the depths of <span className="text-white">Machine Learning</span>. My focus is on merging technical complexity with intuitive design.
+                      Over the years, I’ve built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Data Science, and Software Engineering. Beyond coding, I’m always eager to embrace new challenges and contribute to innovative projects.
                     </p>
                     <p>
-                      When I'm not coding, I'm sharing knowledge through my <span className="text-primary font-bold">YouTube channel</span>, helping others navigate the world of technology through practical project building.
+                      Alongside my academic journey, I also create technical content on YouTube, where I share project tutorials and lessons that simplify complex topics for beginners and students, helping them gain practical skills and confidence in technology.
                     </p>
                   </div>
                   <div className="flex justify-center md:justify-end">
-                    <div className="relative w-64 h-64 md:w-80 md:h-80">
+                    <div className="relative w-72 h-72 md:w-96 md:h-96">
                       <div className="absolute inset-0 bg-primary/20 rounded-2xl rotate-3" />
                       <img 
                         src={aboutPhoto} 
@@ -86,14 +93,18 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold mb-16 text-center text-white"
+              className="text-4xl md:text-6xl font-medium mb-20 text-center text-white"
             >
               Featured <span className="text-primary">Projects</span>
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="space-y-32">
               {projects?.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
+                <ProjectCard 
+                  key={project.id} 
+                  project={{...project, imageUrl: assetMap[project.imageUrl || ''] || project.imageUrl}} 
+                  index={index} 
+                />
               ))}
             </div>
           </div>
@@ -108,18 +119,18 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="text-4xl md:text-6xl font-bold mb-16 text-white">
+              <h2 className="text-4xl md:text-6xl font-medium mb-16 text-white">
                 My <span className="text-primary">Experience</span>
               </h2>
               <div className="max-w-3xl mx-auto bg-white/5 p-12 rounded-[2rem] border border-white/10 shadow-2xl backdrop-blur-xl">
-                <h3 className="text-3xl font-bold text-white mb-2">Researcher</h3>
+                <h3 className="text-3xl font-medium text-white mb-2">Researcher</h3>
                 <p className="text-xl text-primary font-medium mb-6">East West University</p>
                 <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                   My paper on <span className="text-white font-bold">Cotton Leaf Image Classification</span> using a Hybrid Deep Learning Model with Explainable AI (XAI) has been published in <span className="italic">Data in Brief</span>.
                 </p>
                 <Button 
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-10 rounded-full h-14 text-lg font-bold transition-all hover:scale-105"
+                  className="bg-primary hover:bg-primary/90 text-black px-10 rounded-full h-14 text-lg font-bold transition-all hover:scale-105"
                   onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
                 >
                   View Published Paper
@@ -136,7 +147,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold mb-20 text-center text-white"
+              className="text-4xl md:text-6xl font-medium mb-20 text-center text-white"
             >
               My <span className="text-primary">Education</span>
             </motion.h2>
@@ -152,7 +163,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold mb-20 text-center text-white"
+              className="text-4xl md:text-6xl font-medium mb-20 text-center text-white"
             >
               YouTube <span className="text-primary">Content</span>
             </motion.h2>
@@ -163,13 +174,13 @@ export default function Portfolio() {
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group"
               >
                 <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s', '_blank')}>
-                  <img src={dictionaryThumb} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                  <img src={wordPhoto} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-7xl text-primary" />
                   </div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-white">Word Dictionary Project in C++</h3>
+                  <h3 className="text-2xl font-medium mb-4 text-white">Word Dictionary Project in C++</h3>
                   <p className="text-muted-foreground leading-relaxed">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
                 </div>
               </motion.div>
@@ -179,13 +190,13 @@ export default function Portfolio() {
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group"
               >
                 <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q', '_blank')}>
-                  <img src={hangmanThumb} alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                  <img src="https://ibb.co.com/VWLV2kRj" alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-7xl text-primary" />
                   </div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-white">Hangman Game Project using C</h3>
+                  <h3 className="text-2xl font-medium mb-4 text-white">Hangman Game Project using C</h3>
                   <p className="text-muted-foreground leading-relaxed">Implementation of the classic Hangman word guessing game in C programming language.</p>
                 </div>
               </motion.div>
@@ -222,9 +233,9 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 {/* Left Side: Previous Style Info */}
                 <div className="space-y-8">
-                  <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                  <h2 className="text-3xl md:text-5xl font-medium mb-6">
                     Let's work <br />
-                    <span className="text-gradient">together.</span>
+                    <span className="text-primary">together.</span>
                   </h2>
                   <p className="text-muted-foreground text-lg max-w-md">
                     I'm currently available for freelance projects and open to full-time opportunities. If you have a project that needs some creative touch, let's chat.
@@ -236,7 +247,7 @@ export default function Portfolio() {
                         <FaEnvelope className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-white text-lg">Email</h4>
+                        <h4 className="font-medium text-white text-lg">Email</h4>
                         <a href="mailto:safaeathasantoufiq@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                           safaeathasantoufiq@gmail.com
                         </a>
@@ -248,7 +259,7 @@ export default function Portfolio() {
                         <FaMapMarkerAlt className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-white text-lg">Location</h4>
+                        <h4 className="font-medium text-white text-lg">Location</h4>
                         <p className="text-muted-foreground">Dhaka, Bangladesh</p>
                       </div>
                     </div>
@@ -259,8 +270,8 @@ export default function Portfolio() {
                 <div className="bg-card border border-border/50 p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors" />
                   
-                  <h2 className="text-3xl font-bold mb-6">
-                    Get in <span className="text-gradient">Touch</span>
+                  <h2 className="text-3xl font-medium mb-6">
+                    Get in <span className="text-primary">Touch</span>
                   </h2>
                   <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
                     Feel free to reach out for collaborations or just a friendly hello!
@@ -268,7 +279,7 @@ export default function Portfolio() {
 
                   <div className="space-y-8">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-6">Connect With Me</h3>
+                      <h3 className="text-xl font-medium text-white mb-6">Connect With Me</h3>
                       <div className="flex gap-4">
                         <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-xl text-muted-foreground hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-md">
                           <FaGithub />

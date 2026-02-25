@@ -51,7 +51,7 @@ export function Hero() {
           <div className="flex flex-col items-center md:items-start gap-8">
             <div className="flex flex-row items-center gap-4 justify-center md:justify-start">
               <Link to="projects" smooth={true} duration={500} offset={-80}>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
                   View My Work
                 </Button>
               </Link>

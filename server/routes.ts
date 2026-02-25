@@ -14,24 +14,29 @@ async function seedDatabase() {
 
   await db.insert(projects).values([
     {
-      title: "Word Dictionary (C++)",
-      description: "Menu-based dictionary using binary search tree",
-      techStack: ["C++", "Data Structures", "BST"],
-      githubUrl: "https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary",
+      title: "Ecommerce Web App",
+      description: "A full-featured ecommerce platform with advanced filtering, cart management, and secure checkout process.",
+      techStack: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+      imageUrl: "Ecommerce.png",
+      githubUrl: "https://github.com/Toufiq-Github/E-commerce-Website",
+      liveUrl: "https://ecommerce-demo.com",
       order: 1
     },
     {
       title: "Retinal Disease Detection",
-      description: "Using a Hybrid Deep Learning Model with Explainable AI (XAI)",
-      techStack: ["Python", "Deep Learning", "TensorFlow", "XAI"],
+      description: "Advanced deep learning system for automated detection of retinal diseases using a Hybrid Deep Learning Model with Explainable AI (XAI) for clinical transparency.",
+      techStack: ["Python", "Deep Learning", "TensorFlow", "OpenCV", "XAI"],
+      imageUrl: "retina.png",
       githubUrl: "https://github.com/Toufiq-Github/Retina_Disease_Classifiaction",
       order: 2
     },
     {
-      title: "E-commerce Website",
-      description: "Full-featured e-commerce platform",
-      techStack: ["React", "Node.js", "MongoDB", "Express"],
-      githubUrl: "https://github.com/Toufiq-Github/E-commerce-Website",
+      title: "Word Dictionary",
+      description: "A efficient dictionary application built using C++ with custom binary search tree implementation for fast word retrieval and management.",
+      techStack: ["C++", "Data Structures", "BST"],
+      imageUrl: "word.png",
+      githubUrl: "https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary",
+      liveUrl: "https://word-dictionary-demo.com",
       order: 3
     }
   ]);
