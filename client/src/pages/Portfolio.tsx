@@ -13,6 +13,8 @@ import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 import ecommercePhoto from "@assets/Ecommerce_1772049675240.png";
 import retinaPhoto from "@assets/retina_1772049675238.png";
 import wordPhoto from "@assets/word_1772049657411.png";
+import dictionaryThumb from "@assets/lFzRzskAQwatNsmhjwZGAA_1772135728097.jpg";
+import hangmanThumb from "@assets/360_F_511071154_7bfMnKC9wucqHKyDQjYEjJs7qKcfZh7W_1772135739870.jpg";
 
 const assetMap: Record<string, string> = {
   "Ecommerce.png": ecommercePhoto,
@@ -58,10 +60,10 @@ export default function Portfolio() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                   <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      Hello! I’m <span className="text-white">Shafaeat Hasan Toufiq</span>, a passionate Computer Science student currently pursuing my Bachelor’s degree in Computer Science & Engineering at East West University, Dhaka. I have a strong foundation in programming with a growing interest in machine learning and software development.
+                      I’m <span className="text-white">Shafaeat Hasan Toufiq</span>. I have completed my undergraduate degree in Computer Science and Engineering at <span className="text-primary">East West University</span>, Dhaka.
                     </p>
                     <p>
-                      Over the years, I’ve built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Data Science, and Software Engineering. Beyond coding, I’m always eager to embrace new challenges and contribute to innovative projects.
+                      Over the years, I’ve built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, System Design, Data Science, and Software Engineering. Beyond coding, I’m always eager to embrace new challenges and contribute to innovative projects.
                     </p>
                     <p>
                       Alongside my academic journey, I also create technical content on YouTube, where I share project tutorials and lessons that simplify complex topics for beginners and students, helping them gain practical skills and confidence in technology.
@@ -174,7 +176,7 @@ export default function Portfolio() {
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group"
               >
                 <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s', '_blank')}>
-                  <img src={wordPhoto} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                  <img src={dictionaryThumb} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-7xl text-primary" />
                   </div>
@@ -190,7 +192,7 @@ export default function Portfolio() {
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group"
               >
                 <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q', '_blank')}>
-                  <img src="https://ibb.co.com/VWLV2kRj" alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                  <img src={hangmanThumb} alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-7xl text-primary" />
                   </div>
@@ -206,11 +208,11 @@ export default function Portfolio() {
                 className="bg-white/5 border border-white/10 rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl"
               >
                 <FaYoutube className="text-8xl text-primary mb-8" />
-                <h3 className="text-3xl font-bold mb-4 text-white">Visit My Channel</h3>
+                <h3 className="text-3xl font-medium mb-4 text-white">Visit My Channel</h3>
                 <p className="text-muted-foreground mb-10 text-lg">Check out more programming tutorials and projects on my YouTube channel</p>
                 <Button 
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white rounded-full px-12 h-14 text-lg font-bold"
+                  className="bg-primary hover:bg-primary/90 text-black rounded-full px-12 h-14 text-lg font-bold"
                   onClick={() => window.open('https://www.youtube.com/@CodeRunnerr', '_blank')}
                 >
                   View Channel
@@ -243,7 +245,7 @@ export default function Portfolio() {
                   
                   <div className="space-y-6">
                     <div className="flex items-center gap-6 group">
-                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/5">
+                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300 shadow-lg shadow-primary/5">
                         <FaEnvelope className="w-6 h-6" />
                       </div>
                       <div>
@@ -255,7 +257,7 @@ export default function Portfolio() {
                     </div>
                     
                     <div className="flex items-center gap-6 group">
-                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/5">
+                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300 shadow-lg shadow-primary/5">
                         <FaMapMarkerAlt className="w-6 h-6" />
                       </div>
                       <div>
@@ -306,10 +308,10 @@ export default function Portfolio() {
         </section>
 
         {/* Footer */}
-        <footer className="py-8 border-t border-border bg-card/50">
-          <div className="container mx-auto px-6 text-center text-muted-foreground">
-            <p>&copy; 2024 Shafaeat Hasan Toufiq. All rights reserved.</p>
-            <p className="text-sm mt-2">Designed & Built with ❤️</p>
+        <footer className="py-12 border-t border-gray-800 bg-[#1a1a1a] transition-all hover:bg-[#222]">
+          <div className="container mx-auto px-6 text-center text-gray-400">
+            <p className="text-lg">&copy; 2024 Shafaeat Hasan Toufiq. All rights reserved.</p>
+            <p className="text-sm mt-3 opacity-80 hover:opacity-100 transition-opacity">Designed & Built with ❤️</p>
           </div>
         </footer>
       </main>

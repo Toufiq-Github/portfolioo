@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-scroll";
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube, FaFileDownload } from "react-icons/fa";
 import profileHero from "@assets/Profile_Photo_Crop_1771706616948.png";
 
 export function Hero() {
@@ -49,12 +49,16 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col items-center md:items-start gap-8">
-            <div className="flex flex-row items-center gap-4 justify-center md:justify-start">
+            <div className="flex flex-row flex-wrap items-center gap-4 justify-center md:justify-start">
               <Link to="projects" smooth={true} duration={500} offset={-80}>
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
                   View My Work
                 </Button>
               </Link>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-2">
+                <FaFileDownload />
+                Resume
+              </Button>
               <Link to="contact" smooth={true} duration={500} offset={-80}>
                 <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
                   Contact Me

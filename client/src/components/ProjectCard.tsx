@@ -31,7 +31,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <img 
             src={project.imageUrl || `https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80`} 
             alt={project.title}
-            className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+            className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
       </motion.div>
@@ -69,7 +69,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.liveUrl && !project.techStack.some(t => t.toLowerCase().includes('learning') || t.toLowerCase().includes('data science') || t.toLowerCase().includes('ml')) && (
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/20"
+              className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25"
               onClick={() => window.open(project.liveUrl || '', '_blank')}
             >
               <ExternalLink className="w-5 h-5" />
