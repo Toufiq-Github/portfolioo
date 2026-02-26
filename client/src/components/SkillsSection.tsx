@@ -66,67 +66,80 @@ export function SkillsSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-          {/* Left Side: Overlapping Palettes */}
+          {/* Left Side: Transitioning Palettes */}
           <div className="relative min-h-[500px] flex items-center justify-start">
-            {/* Data Science Palette (Background) */}
-            <motion.div
-              initial={false}
-              animate={{
-                zIndex: activeTab === "data" ? 30 : 10,
-                y: activeTab === "data" ? 0 : 80,
-                x: activeTab === "data" ? 0 : 40,
-                scale: 1,
-                opacity: 1,
-              }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              onMouseEnter={() => setActiveTab("data")}
-              className="absolute w-full max-w-md p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
-            >
-              <div className="flex justify-between items-center mb-10">
-                <h3 className="text-3xl font-medium text-black">Data Scientist</h3>
+            <div className="w-full max-w-md relative">
+              {/* Tab Header Controls */}
+              <div className="flex gap-8 mb-12 border-b border-gray-100 pb-4">
+                <button 
+                  onClick={() => setActiveTab("web")}
+                  className={`text-2xl font-medium transition-all relative ${activeTab === "web" ? "text-black" : "text-gray-400 hover:text-gray-600"}`}
+                >
+                  Frontend Developer
+                  {activeTab === "web" && (
+                    <motion.div layoutId="tab-underline" className="absolute -bottom-[17px] left-0 right-0 h-1 bg-black rounded-full" />
+                  )}
+                </button>
+                <button 
+                  onClick={() => setActiveTab("data")}
+                  className={`text-2xl font-medium transition-all relative ${activeTab === "data" ? "text-black" : "text-gray-400 hover:text-gray-600"}`}
+                >
+                  Data Scientist
+                  {activeTab === "data" && (
+                    <motion.div layoutId="tab-underline" className="absolute -bottom-[17px] left-0 right-0 h-1 bg-black rounded-full" />
+                  )}
+                </button>
               </div>
-              <div className="grid grid-cols-2 gap-y-8 gap-x-6">
-                {dataSkills.slice(0, 6).map((skill) => (
-                  <div key={skill} className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-black" />
-                      <span className="font-medium text-lg text-black">{skill}</span>
-                    </div>
-                    <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Web Palette (Frontend) */}
-            <motion.div
-              initial={false}
-              animate={{
-                zIndex: activeTab === "web" ? 30 : 10,
-                y: activeTab === "web" ? 0 : 80,
-                x: activeTab === "web" ? 0 : 40,
-                scale: 1,
-                opacity: 1,
-              }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              onMouseEnter={() => setActiveTab("web")}
-              className="absolute w-full max-w-md p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
-            >
-              <div className="flex justify-between items-center mb-10">
-                <h3 className="text-3xl font-medium text-black">Frontend Developer</h3>
+              {/* Palette Content with Animation Presence */}
+              <div className="relative h-[400px]">
+                <AnimatePresence mode="wait">
+                  {activeTab === "web" ? (
+                    <motion.div
+                      key="web-palette"
+                      initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      className="absolute inset-0 p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md"
+                    >
+                      <div className="grid grid-cols-2 gap-y-8 gap-x-6">
+                        {webSkills.slice(0, 6).map((skill) => (
+                          <div key={skill} className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2">
+                              <CheckCircle2 className="w-5 h-5 text-black" />
+                              <span className="font-medium text-lg text-black">{skill}</span>
+                            </div>
+                            <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="data-palette"
+                      initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      className="absolute inset-0 p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md"
+                    >
+                      <div className="grid grid-cols-2 gap-y-8 gap-x-6">
+                        {dataSkills.slice(0, 6).map((skill) => (
+                          <div key={skill} className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2">
+                              <CheckCircle2 className="w-5 h-5 text-black" />
+                              <span className="font-medium text-lg text-black">{skill}</span>
+                            </div>
+                            <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <div className="grid grid-cols-2 gap-y-8 gap-x-6">
-                {webSkills.slice(0, 6).map((skill) => (
-                  <div key={skill} className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-black" />
-                      <span className="font-medium text-lg text-black">{skill}</span>
-                    </div>
-                    <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Side: Circular Orbiting Icons */}
