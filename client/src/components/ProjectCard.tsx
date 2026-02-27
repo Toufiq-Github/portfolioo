@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@shared/schema";
@@ -14,8 +14,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, scale: 0.9, y: 50 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
       className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${!isEven ? 'md:flex-row-reverse' : ''}`}
@@ -69,11 +69,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.liveUrl && !project.techStack.some(t => t.toLowerCase().includes('learning') || t.toLowerCase().includes('data science') || t.toLowerCase().includes('ml')) && (
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25"
+              className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25 group/demo"
               onClick={() => window.open(project.liveUrl || '', '_blank')}
             >
               <ExternalLink className="w-5 h-5" />
               Live Demo
+              <ArrowRight className="w-4 h-4 transition-transform group-hover/demo:translate-x-1" />
             </Button>
           )}
         </div>
