@@ -72,22 +72,16 @@ export function SkillsSection() {
               {/* Tab Header Controls */}
               <div className="flex gap-6 md:gap-8 mb-12 border-b border-gray-100 pb-4 justify-center lg:justify-start">
                 <button 
-                  onClick={() => setActiveTab("web")}
-                  className={`text-xl md:text-2xl font-medium transition-all relative ${activeTab === "web" ? "text-black" : "text-gray-400 hover:text-gray-600"}`}
+                  onMouseEnter={() => setActiveTab("web")}
+                  className={`px-6 py-2 rounded-full border transition-all relative font-medium ${activeTab === "web" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
                 >
                   Web Development
-                  {activeTab === "web" && (
-                    <motion.div layoutId="tab-underline" className="absolute -bottom-[17px] left-0 right-0 h-1 bg-black rounded-full" />
-                  )}
                 </button>
                 <button 
-                  onClick={() => setActiveTab("data")}
-                  className={`text-xl md:text-2xl font-medium transition-all relative ${activeTab === "data" ? "text-black" : "text-gray-400 hover:text-gray-600"}`}
+                  onMouseEnter={() => setActiveTab("data")}
+                  className={`px-6 py-2 rounded-full border transition-all relative font-medium ${activeTab === "data" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
                 >
                   Data Science
-                  {activeTab === "data" && (
-                    <motion.div layoutId="tab-underline" className="absolute -bottom-[17px] left-0 right-0 h-1 bg-black rounded-full" />
-                  )}
                 </button>
               </div>
 
@@ -107,7 +101,6 @@ export function SkillsSection() {
                     }}
                     transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
                     className="absolute inset-0 p-8 md:p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
-                    onClick={() => setActiveTab("web")}
                   >
                     <div className="mb-8">
                       <h3 className={`text-2xl font-medium ${activeTab === "web" ? "text-black" : "text-black/40"}`}>Web Development</h3>
@@ -140,7 +133,6 @@ export function SkillsSection() {
                     }}
                     transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
                     className="absolute inset-0 p-8 md:p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
-                    onClick={() => setActiveTab("data")}
                   >
                     <div className="mb-8">
                       <h3 className={`text-2xl font-medium ${activeTab === "data" ? "text-black" : "text-black/40"}`}>Data Science</h3>

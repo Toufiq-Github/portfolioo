@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@shared/schema";
@@ -67,15 +67,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </Button>
           )}
           {project.liveUrl && !project.techStack.some(t => t.toLowerCase().includes('learning') || t.toLowerCase().includes('data science') || t.toLowerCase().includes('ml')) && (
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25 group/demo"
-              onClick={() => window.open(project.liveUrl || '', '_blank')}
+            <motion.div 
+              whileTap={{ scale: 0.9, y: 2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <ExternalLink className="w-5 h-5" />
-              Live Demo
-              <ArrowRight className="w-4 h-4 transition-transform group-hover/demo:translate-x-1" />
-            </Button>
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25"
+                onClick={() => window.open(project.liveUrl || '', '_blank')}
+              >
+                <ExternalLink className="w-5 h-5" />
+                Live Demo
+              </Button>
+            </motion.div>
           )}
         </div>
       </div>

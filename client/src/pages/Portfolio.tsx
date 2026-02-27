@@ -4,7 +4,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -25,6 +26,7 @@ const assetMap: Record<string, string> = {
 export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
   const { data: timeline, isLoading: timelineLoading } = useTimeline();
+  const [hoveredAbout, setHoveredAbout] = useState<string | null>(null);
 
   if (projectsLoading || timelineLoading) {
     return (
@@ -57,7 +59,7 @@ export default function Portfolio() {
                   About <span className="text-primary">Me</span>
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                   <div className="flex flex-col gap-8">
                     <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary transition-all duration-500">
                       <p className="text-lg md:text-xl text-white leading-relaxed font-medium">
@@ -72,8 +74,8 @@ export default function Portfolio() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex justify-center md:justify-end">
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                  <div className="flex flex-col items-center md:items-end gap-12">
+                    <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
                       <div className="absolute inset-0 bg-primary/20 rounded-2xl rotate-3" />
                       <img 
                         src={aboutPhoto} 
@@ -81,47 +83,58 @@ export default function Portfolio() {
                         className="relative rounded-2xl shadow-2xl border border-white/5 w-full h-full object-cover" 
                       />
                     </div>
+                    
+                    <div className="w-full flex flex-col gap-4 relative">
+                      <div className="flex gap-4 justify-center md:justify-end">
+                        <button 
+                          onMouseEnter={() => setHoveredAbout('development')}
+                          onMouseLeave={() => setHoveredAbout(null)}
+                          className="px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95"
+                        >
+                          Development
+                        </button>
+                        <button 
+                          onMouseEnter={() => setHoveredAbout('research')}
+                          onMouseLeave={() => setHoveredAbout(null)}
+                          className="px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95"
+                        >
+                          Research
+                        </button>
+                      </div>
+
+                      <div className="min-h-[120px] w-full">
+                        <AnimatePresence mode="wait">
+                          {hoveredAbout === 'development' && (
+                            <motion.div
+                              key="dev-text"
+                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                              className="p-6 rounded-[2rem] bg-white/10 border border-primary/30 text-white text-center md:text-right shadow-2xl backdrop-blur-md"
+                            >
+                              Passionate about building scalable web applications and exploring modern frameworks. My goal is to create impactful software that solves real-world problems through clean code and efficient architecture.
+                            </motion.div>
+                          )}
+                          {hoveredAbout === 'research' && (
+                            <motion.div
+                              key="research-text"
+                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                              className="p-6 rounded-[2rem] bg-white/10 border border-primary/30 text-white text-center md:text-right shadow-2xl backdrop-blur-md"
+                            >
+                              Deeply interested in Machine Learning and Computer Vision. I strive to combine theoretical knowledge with practical implementations to push the boundaries of artificial intelligence.
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             </div>
           </section>
         </div>
-
-        {/* New Milestone Section (After About) */}
-        <section className="py-24 bg-white overflow-hidden relative border-y border-gray-100">
-          <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10">
-            <div className="mb-20 text-center">
-              <span className="flex items-center justify-center gap-2 text-black font-medium mb-2">
-                <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-                Key Focus
-              </span>
-              <h2 className="text-4xl md:text-5xl font-medium mb-4 text-black">
-                Personal <span className="text-gray-500">Milestones</span>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-               <motion.div 
-                 whileHover={{ y: -5 }}
-                 className="p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md transition-all hover:bg-gray-200/60"
-               >
-                 <h3 className="text-3xl font-medium text-black mb-6">Development</h3>
-                 <p className="text-black/80 text-lg leading-relaxed">
-                   Passionate about building scalable web applications and exploring modern frameworks. My goal is to create impactful software that solves real-world problems through clean code and efficient architecture.
-                 </p>
-               </motion.div>
-               <motion.div 
-                 whileHover={{ y: -5 }}
-                 className="p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md transition-all hover:bg-gray-200/60"
-               >
-                 <h3 className="text-3xl font-medium text-black mb-6">Research</h3>
-                 <p className="text-black/80 text-lg leading-relaxed">
-                   Deeply interested in Machine Learning and Computer Vision. I strive to combine theoretical knowledge with practical implementations to push the boundaries of artificial intelligence.
-                 </p>
-               </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* Skills Section */}
         <SkillsSection />
@@ -178,10 +191,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-6">
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      Conducted extensive research on <span className="text-white font-bold underline decoration-primary/50 underline-offset-4">Cotton Leaf Image Classification</span>, developing a Hybrid Deep Learning Model that achieved state-of-the-art performance.
-                    </p>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Integrated <span className="text-white font-medium">Explainable AI (XAI)</span> techniques to provide visual interpretability for model predictions, ensuring clinical and agricultural reliability.
+                      Integrated Explainable AI (XAI) techniques to provide visual interpretability for model predictions, ensuring clinical and agricultural reliability.
                     </p>
                     <div className="pt-4 border-t border-white/10">
                       <p className="text-sm text-muted-foreground italic mb-6">Published in "Data in Brief", ScienceDirect</p>
