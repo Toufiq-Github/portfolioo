@@ -14,7 +14,7 @@ import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 import ecommercePhoto from "@assets/Ecommerce_1772049675240.png";
 import retinaPhoto from "@assets/retina_1772049675238.png";
 import wordPhoto from "@assets/word_1772049657411.png";
-import dictionaryThumb from "@assets/lFzRzskAQwatNsmhjwZGAA_1772135728097.jpg";
+import dictionaryThumb from "@assets/dic_1772288792898.png";
 import hangmanThumb from "@assets/360_F_511071154_7bfMnKC9wucqHKyDQjYEjJs7qKcfZh7W_1772135739870.jpg";
 
 const assetMap: Record<string, string> = {
@@ -213,10 +213,16 @@ export default function Portfolio() {
                       <p className="text-sm text-muted-foreground italic mb-6">Published in "Data in Brief", ScienceDirect</p>
                       <Button 
                         size="lg"
-                        className="bg-primary hover:bg-primary/90 text-black px-10 rounded-full h-14 text-lg font-bold transition-all hover:scale-105 shadow-xl shadow-primary/10"
+                        className="bg-primary hover:bg-primary/90 text-black px-10 rounded-full h-14 text-lg font-bold transition-all hover:scale-105 shadow-xl shadow-primary/10 flex items-center gap-2"
                         onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
                       >
                         View Published Paper
+                        <motion.span
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          →
+                        </motion.span>
                       </Button>
                     </div>
                   </div>
@@ -296,7 +302,7 @@ export default function Portfolio() {
                 <p className="text-muted-foreground mb-8 text-sm">Check out more programming tutorials and projects on my YouTube channel</p>
                 <Button 
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
+                  className="bg-primary hover:bg-primary/90 text-black rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
                   onClick={() => window.open('https://www.youtube.com/@CodeRunnerr', '_blank')}
                 >
                   View Channel
