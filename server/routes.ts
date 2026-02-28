@@ -61,7 +61,7 @@ async function seedDatabase() {
     {
       title: "Bachelor of Science, Computer Science & Engineering",
       organization: "EAST WEST UNIVERSITY – Dhaka, Bangladesh",
-      period: "Oct 2021 – Feb 2026 (Expected)",
+      period: "Oct 2021 – April 2026",
       type: "education",
       order: 1
     }

@@ -40,69 +40,83 @@ export default function Portfolio() {
     <div className="bg-black text-foreground overflow-x-hidden selection:bg-primary/30">
       <Navbar />
       
-      <main>
+      <main className="relative">
         {/* Dark Section Wrapper for Hero + About */}
-        <div className="bg-black">
+        <div className="bg-black relative z-10">
           <Hero />
 
           {/* About Section */}
-          <section id="about" className="py-24 relative overflow-hidden">
+          <section id="about" className="py-12 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full"
               >
-                <h2 className="text-4xl md:text-6xl font-medium mb-16 text-center text-white">
+                <h2 className="text-3xl md:text-5xl font-medium mb-12 text-center text-white">
                   About <span className="text-primary">Me</span>
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                  <div className="flex flex-col gap-8">
-                    <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary transition-all duration-500">
-                      <p className="text-lg md:text-xl text-white leading-relaxed font-medium">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                  <div className="flex flex-col gap-6 pt-0 md:pt-4">
+                    <div className="bg-white/5 p-6 rounded-[2rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary transition-all duration-500">
+                      <p className="text-base md:text-lg text-white leading-relaxed font-medium">
                         I’m <span className="text-primary">Shafaeat Hasan Toufiq</span>. I have completed my undergraduate degree in Computer Science and Engineering at <span className="text-primary">East West University</span>, Dhaka.
                       </p>
                     </div>
-                    <div className="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary transition-all duration-500">
-                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    <div className="bg-white/5 p-6 rounded-[2rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary transition-all duration-500">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                         Over the years, I’ve built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, System Design, Data Science, and Software Engineering. Beyond coding, I’m always eager to embrace new challenges and contribute to innovative projects.
                         <br /><br />
                         Alongside my academic journey, I also create technical content on YouTube, where I share project tutorials and lessons that simplify complex topics for beginners and students, helping them gain practical skills and confidence in technology.
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center md:items-end gap-12">
-                    <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
+                  <div className="flex flex-col items-center md:items-end gap-8">
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px]"
+                    >
                       <div className="absolute inset-0 bg-primary/20 rounded-2xl rotate-3" />
-                      <img 
-                        src={aboutPhoto} 
-                        alt="Shafaeat Hasan Toufiq" 
-                        className="relative rounded-2xl shadow-2xl border border-white/5 w-full h-full object-cover" 
-                      />
-                    </div>
+                      <div className="relative rounded-2xl shadow-2xl border border-white/5 w-full h-full overflow-hidden">
+                        <img 
+                          src={aboutPhoto} 
+                          alt="Shafaeat Hasan Toufiq" 
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                        />
+                      </div>
+                    </motion.div>
                     
-                    <div className="w-full flex flex-col gap-4 relative">
-                      <div className="flex gap-4 justify-center md:justify-end">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      className="w-full max-w-[400px] flex flex-col gap-4 relative"
+                    >
+                      <div className="flex gap-4 w-full">
                         <button 
                           onMouseEnter={() => setHoveredAbout('development')}
                           onMouseLeave={() => setHoveredAbout(null)}
-                          className="px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95"
+                          className="flex-1 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95 text-sm md:text-base"
                         >
                           Development
                         </button>
                         <button 
                           onMouseEnter={() => setHoveredAbout('research')}
                           onMouseLeave={() => setHoveredAbout(null)}
-                          className="px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95"
+                          className="flex-1 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-primary hover:text-black transition-all shadow-lg active:scale-95 text-sm md:text-base"
                         >
                           Research
                         </button>
                       </div>
 
-                      <div className="min-h-[120px] w-full">
+                      <div className="min-h-[100px] w-full">
                         <AnimatePresence mode="wait">
                           {hoveredAbout === 'development' && (
                             <motion.div
@@ -110,7 +124,7 @@ export default function Portfolio() {
                               initial={{ opacity: 0, y: 10, scale: 0.95 }}
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className="p-6 rounded-[2rem] bg-white/10 border border-primary/30 text-white text-center md:text-right shadow-2xl backdrop-blur-md"
+                              className="p-4 rounded-[1.5rem] bg-white/10 border border-primary/30 text-white text-xs md:text-sm text-center shadow-2xl backdrop-blur-md"
                             >
                               Passionate about building scalable web applications and exploring modern frameworks. My goal is to create impactful software that solves real-world problems through clean code and efficient architecture.
                             </motion.div>
@@ -121,14 +135,14 @@ export default function Portfolio() {
                               initial={{ opacity: 0, y: 10, scale: 0.95 }}
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className="p-6 rounded-[2rem] bg-white/10 border border-primary/30 text-white text-center md:text-right shadow-2xl backdrop-blur-md"
+                              className="p-4 rounded-[1.5rem] bg-white/10 border border-primary/30 text-white text-xs md:text-sm text-center shadow-2xl backdrop-blur-md"
                             >
                               Deeply interested in Machine Learning and Computer Vision. I strive to combine theoretical knowledge with practical implementations to push the boundaries of artificial intelligence.
                             </motion.div>
                           )}
                         </AnimatePresence>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -136,11 +150,13 @@ export default function Portfolio() {
           </section>
         </div>
 
-        {/* Skills Section */}
-        <SkillsSection />
+        {/* Skills Section - Sticky */}
+        <div className="sticky top-0 h-screen z-0 overflow-hidden flex items-center justify-center bg-white">
+          <SkillsSection />
+        </div>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-24 bg-black">
+        {/* Projects Section - Overlays Skills */}
+        <section id="projects" className="relative z-20 pt-24 pb-24 bg-black rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -164,7 +180,7 @@ export default function Portfolio() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-24 bg-black">
+        <section id="experience" className="relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -211,7 +227,7 @@ export default function Portfolio() {
         </section>
 
         {/* Timeline (Education) Section */}
-        <section id="timeline" className="py-24 bg-black">
+        <section id="timeline" className="relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -227,7 +243,7 @@ export default function Portfolio() {
         </section>
 
         {/* YouTube Section */}
-        <section id="youtube" className="py-24 bg-black">
+        <section id="youtube" className="relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -292,7 +308,7 @@ export default function Portfolio() {
 
 
         {/* Contact Section */}
-        <section id="contact" className="py-24">
+        <section id="contact" className="relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -376,8 +392,8 @@ export default function Portfolio() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 border-t border-gray-800 bg-gray-900 transition-all hover:bg-gray-800/80">
-          <div className="container mx-auto px-6 text-center text-gray-400">
+        <footer className="relative z-20 py-12 border-t border-gray-100 bg-white transition-all hover:bg-gray-50/80">
+          <div className="container mx-auto px-6 text-center text-gray-600">
             <p className="text-lg md:text-xl font-medium">&copy; 2024 Shafaeat Hasan Toufiq. All rights reserved.</p>
             <p className="text-sm mt-3 opacity-60 hover:opacity-100 transition-opacity">Designed & Built with ❤️</p>
           </div>

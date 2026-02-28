@@ -53,40 +53,40 @@ export function SkillsSection() {
   }, []);
 
   return (
-    <section id="skills" className="py-32 bg-white overflow-hidden relative border-y border-gray-100">
-      <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10">
-        <div className="mb-20">
+    <section id="skills" className="w-full h-full bg-white overflow-hidden relative flex items-center justify-center">
+      <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10 py-6">
+        <div className="mb-8">
           <span className="flex items-center gap-2 text-black font-medium mb-2">
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             My Expertise
           </span>
-          <h2 className="text-4xl md:text-5xl font-medium mb-4 text-black text-center lg:text-left">
+          <h2 className="text-3xl md:text-5xl font-medium mb-2 text-black text-center lg:text-left">
             Skills & <span className="text-gray-500">Technologies</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 items-center">
           {/* Left Side: Overlapping Palettes */}
-          <div className="relative min-h-[450px] md:min-h-[500px] flex items-center justify-start">
+          <div className="relative min-h-[400px] md:min-h-[450px] flex items-center justify-start">
             <div className="w-full max-w-md relative mx-auto lg:mx-0">
               {/* Tab Header Controls */}
-              <div className="flex gap-6 md:gap-8 mb-12 border-b border-gray-100 pb-4 justify-center lg:justify-start">
+              <div className="flex gap-4 md:gap-6 mb-8 border-b border-gray-100 pb-4 justify-center lg:justify-start">
                 <button 
                   onMouseEnter={() => setActiveTab("web")}
-                  className={`px-6 py-2 rounded-full border transition-all relative font-medium ${activeTab === "web" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
+                  className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "web" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
                 >
                   Web Development
                 </button>
                 <button 
                   onMouseEnter={() => setActiveTab("data")}
-                  className={`px-6 py-2 rounded-full border transition-all relative font-medium ${activeTab === "data" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
+                  className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "data" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
                 >
                   Data Science
                 </button>
               </div>
 
               {/* Palette Content with Animation Presence */}
-              <div className="relative h-[400px]">
+              <div className="relative h-[320px] md:h-[350px]">
                 <AnimatePresence mode="popLayout">
                   {/* Web Palette Layering */}
                   <motion.div
@@ -94,26 +94,26 @@ export function SkillsSection() {
                     initial={false}
                     animate={{
                       zIndex: activeTab === "web" ? 30 : 10,
-                      y: activeTab === "web" ? 0 : 60,
-                      x: activeTab === "web" ? 0 : 30,
+                      y: activeTab === "web" ? 0 : 40,
+                      x: activeTab === "web" ? 0 : 20,
                       scale: activeTab === "web" ? 1 : 0.95,
                       opacity: activeTab === "web" ? 1 : 0.3,
                     }}
                     transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                    className="absolute inset-0 p-8 md:p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
+                    className="absolute inset-0 p-6 md:p-8 rounded-[2rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
                   >
-                    <div className="mb-8">
-                      <h3 className={`text-2xl font-medium ${activeTab === "web" ? "text-black" : "text-black/40"}`}>Web Development</h3>
+                    <div className="mb-6">
+                      <h3 className={`text-xl font-medium ${activeTab === "web" ? "text-black" : "text-black/40"}`}>Web Development</h3>
                     </div>
                     {activeTab === "web" && (
-                      <div className="grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-4 md:gap-x-6">
+                      <div className="grid grid-cols-2 gap-y-4 md:gap-y-6 gap-x-4">
                         {webSkills.slice(0, 6).map((skill) => (
-                          <div key={skill} className="flex flex-col gap-1">
+                          <div key={skill} className="flex flex-col gap-0.5">
                             <div className="flex items-center gap-2">
-                              <CheckCircle2 className="w-5 h-5 text-black" />
-                              <span className="font-medium text-base md:text-lg text-black">{skill}</span>
+                              <CheckCircle2 className="w-4 h-4 text-black" />
+                              <span className="font-medium text-sm md:text-base text-black">{skill}</span>
                             </div>
-                            <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
+                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Expert</span>
                           </div>
                         ))}
                       </div>
@@ -126,26 +126,26 @@ export function SkillsSection() {
                     initial={false}
                     animate={{
                       zIndex: activeTab === "data" ? 30 : 10,
-                      y: activeTab === "data" ? 0 : 60,
-                      x: activeTab === "data" ? 0 : 30,
+                      y: activeTab === "data" ? 0 : 40,
+                      x: activeTab === "data" ? 0 : 20,
                       scale: activeTab === "data" ? 1 : 0.95,
                       opacity: activeTab === "data" ? 1 : 0.3,
                     }}
                     transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                    className="absolute inset-0 p-8 md:p-10 rounded-[2.5rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
+                    className="absolute inset-0 p-6 md:p-8 rounded-[2rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
                   >
-                    <div className="mb-8">
-                      <h3 className={`text-2xl font-medium ${activeTab === "data" ? "text-black" : "text-black/40"}`}>Data Science</h3>
+                    <div className="mb-6">
+                      <h3 className={`text-xl font-medium ${activeTab === "data" ? "text-black" : "text-black/40"}`}>Data Science</h3>
                     </div>
                     {activeTab === "data" && (
-                      <div className="grid grid-cols-2 gap-y-6 md:gap-y-8 gap-x-4 md:gap-x-6">
+                      <div className="grid grid-cols-2 gap-y-4 md:gap-y-6 gap-x-4">
                         {dataSkills.slice(0, 6).map((skill) => (
-                          <div key={skill} className="flex flex-col gap-1">
+                          <div key={skill} className="flex flex-col gap-0.5">
                             <div className="flex items-center gap-2">
-                              <CheckCircle2 className="w-5 h-5 text-black" />
-                              <span className="font-medium text-base md:text-lg text-black">{skill}</span>
+                              <CheckCircle2 className="w-4 h-4 text-black" />
+                              <span className="font-medium text-sm md:text-base text-black">{skill}</span>
                             </div>
-                            <span className="text-xs text-gray-500 ml-7 font-medium">Expert</span>
+                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Expert</span>
                           </div>
                         ))}
                       </div>
@@ -157,10 +157,10 @@ export function SkillsSection() {
           </div>
 
           {/* Right Side: Circular Orbiting Icons */}
-          <div className="relative h-[500px] md:h-[600px] w-full flex items-center justify-center">
-             <div className="absolute inset-0 bg-gray-100/50 rounded-full blur-[100px] -z-10" />
+          <div className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
+             <div className="absolute inset-0 bg-gray-100/50 rounded-full blur-[80px] -z-10" />
              
-             <div className="relative w-full h-full flex items-center justify-center scale-75 md:scale-100">
+             <div className="relative w-full h-full flex items-center justify-center scale-[0.6] md:scale-90 lg:scale-100">
                <AnimatePresence mode="wait">
                  <motion.div 
                    key={activeTab}
@@ -174,17 +174,17 @@ export function SkillsSection() {
                    {(activeTab === "web" ? webSkills : dataSkills).map((skill, index, arr) => {
                      const Icon = iconMap[skill];
                      const angle = (index / arr.length) * 2 * Math.PI;
-                     const radius = 220;
+                     const radius = 200;
                      const x = Math.cos(angle) * radius;
                      const y = Math.sin(angle) * radius;
                      return (
                        <motion.div 
                          key={skill} 
-                         className="absolute p-5 bg-white border border-gray-100 rounded-full shadow-lg hover:border-black transition-colors cursor-pointer group"
+                         className="absolute p-4 bg-white border border-gray-100 rounded-full shadow-lg hover:border-black transition-colors cursor-pointer group"
                          style={{ x, y, rotate: -rotation }}
                          whileHover={{ scale: 1.2 }}
                        >
-                         {Icon && <Icon className="text-3xl md:text-4xl text-black" />}
+                         {Icon && <Icon className="text-2xl md:text-3xl text-black" />}
                          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 border border-gray-100 px-3 py-1 rounded text-xs text-black font-bold whitespace-nowrap shadow-sm">
                            {skill}
                          </div>
