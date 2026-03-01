@@ -214,13 +214,19 @@ export default function Portfolio() {
                     </p>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                       <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Published in "Data in Brief", ScienceDirect</p>
-                      <button 
-                        className="text-primary hover:text-white text-sm font-bold flex items-center gap-2 transition-colors group/link"
+                      <Button 
+                        size="sm"
+                        className="bg-primary hover:bg-primary/90 text-black px-6 rounded-full font-bold transition-all hover:scale-105 flex items-center gap-2"
                         onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
                       >
                         View Paper
-                        <span className="group-hover:translate-x-1 transition-transform">→</span>
-                      </button>
+                        <motion.span
+                          animate={{ x: [0, 3, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          →
+                        </motion.span>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
@@ -398,7 +404,6 @@ export default function Portfolio() {
         <footer className="relative z-20 py-12 border-t border-gray-100 bg-white transition-all hover:bg-gray-50/80">
           <div className="container mx-auto px-6 text-center text-gray-600">
             <p className="text-lg md:text-xl font-medium">&copy; 2024 Shafaeat Hasan Toufiq. All rights reserved.</p>
-            <p className="text-sm mt-3 opacity-60 hover:opacity-100 transition-opacity">Designed & Built with ❤️</p>
           </div>
         </footer>
       </main>
