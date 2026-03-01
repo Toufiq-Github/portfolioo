@@ -186,44 +186,41 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="max-w-4xl mx-auto"
             >
-              <h2 className="text-4xl md:text-6xl font-medium mb-16 text-white">
+              <h2 className="text-3xl md:text-5xl font-medium mb-16 text-white text-center md:text-left">
                 Work <span className="text-primary">Experience</span>
               </h2>
-              <div className="max-w-4xl mx-auto space-y-12">
+              
+              <div className="space-y-0 border-l border-white/10 ml-4 md:ml-0">
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 p-12 rounded-[2rem] border border-white/10 shadow-2xl backdrop-blur-xl text-left hover:border-primary transition-all duration-500 relative overflow-hidden group"
+                  className="relative pl-8 pb-12 group"
                 >
-                  <div className="absolute top-0 right-0 p-8">
-                    <span className="px-6 py-2 bg-primary/10 rounded-full text-primary border border-primary/20 font-medium text-sm">2023 - Present</span>
+                  <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-primary/10 group-hover:scale-125 transition-transform" />
+                  
+                  <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
+                    <h3 className="text-xl md:text-2xl font-medium text-white group-hover:text-primary transition-colors">Researcher</h3>
+                    <span className="text-sm font-medium text-primary/60 bg-primary/5 px-3 py-1 rounded-full border border-primary/10">2023 — Present</span>
                   </div>
-                  <div className="flex flex-col gap-2 mb-8">
-                    <h3 className="text-3xl font-medium text-white">Researcher</h3>
-                    <p className="text-xl text-primary font-medium">East West University</p>
-                  </div>
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                  
+                  <p className="text-lg text-white/80 mb-2 font-medium">East West University</p>
+                  
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
                       Integrated Explainable AI (XAI) techniques to provide visual interpretability for model predictions, ensuring clinical and agricultural reliability.
                     </p>
-                    <div className="pt-4 border-t border-white/10">
-                      <p className="text-sm text-muted-foreground italic mb-6">Published in "Data in Brief", ScienceDirect</p>
-                      <Button 
-                        size="lg"
-                        className="bg-primary hover:bg-primary/90 text-black px-10 rounded-full h-14 text-lg font-bold transition-all hover:scale-105 shadow-xl shadow-primary/10 flex items-center gap-2"
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+                      <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Published in "Data in Brief", ScienceDirect</p>
+                      <button 
+                        className="text-primary hover:text-white text-sm font-bold flex items-center gap-2 transition-colors group/link"
                         onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
                       >
-                        View Published Paper
-                        <motion.span
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          →
-                        </motion.span>
-                      </Button>
+                        View Paper
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </button>
                     </div>
                   </div>
                 </motion.div>
