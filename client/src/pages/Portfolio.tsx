@@ -188,45 +188,51 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="max-w-4xl mx-auto"
             >
-              <h2 className="text-3xl md:text-5xl font-medium mb-16 text-white text-center md:text-left">
+              <h2 className="text-3xl md:text-5xl font-medium mb-16 text-white text-center">
                 Work <span className="text-primary">Experience</span>
               </h2>
               
-              <div className="space-y-0 border-l border-white/10 ml-4 md:ml-0">
+              <div className="space-y-8">
                 <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="relative pl-8 pb-12 group"
+                  className="bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary/50 transition-all duration-500 group relative overflow-hidden"
                 >
-                  <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-primary/10 group-hover:scale-125 transition-transform" />
-                  
-                  <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
-                    <h3 className="text-xl md:text-2xl font-medium text-white group-hover:text-primary transition-colors">Researcher</h3>
-                    <span className="text-sm font-medium text-primary/60 bg-primary/5 px-3 py-1 rounded-full border border-primary/10">2023 — Present</span>
+                  <div className="absolute top-0 right-0 p-8">
+                    <span className="px-4 py-1.5 bg-primary/10 rounded-full text-primary border border-primary/20 font-medium text-sm">2023 — Present</span>
+                  </div>
+
+                  <div className="flex flex-col gap-2 mb-6">
+                    <h3 className="text-2xl md:text-3xl font-medium text-white group-hover:text-primary transition-colors">Researcher</h3>
+                    <p className="text-lg text-primary/80 font-medium">East West University</p>
                   </div>
                   
-                  <p className="text-lg text-white/80 mb-2 font-medium">East West University</p>
-                  
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                  <div className="space-y-8">
+                    <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
                       Integrated Explainable AI (XAI) techniques to provide visual interpretability for model predictions, ensuring clinical and agricultural reliability.
                     </p>
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                      <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Published in "Data in Brief", ScienceDirect</p>
-                      <Button 
-                        size="sm"
-                        className="bg-primary hover:bg-primary/90 text-black px-6 rounded-full font-bold transition-all hover:scale-105 flex items-center gap-2"
-                        onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
+                    
+                    <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                      <p className="text-sm text-muted-foreground italic font-medium">Published in "Data in Brief", ScienceDirect</p>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        View Paper
-                        <motion.span
-                          animate={{ x: [0, 3, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        <Button 
+                          size="lg"
+                          className="bg-primary hover:bg-white text-black px-10 rounded-full h-14 text-lg font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3"
+                          onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
                         >
-                          →
-                        </motion.span>
-                      </Button>
+                          View Paper
+                          <motion.span
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            →
+                          </motion.span>
+                        </Button>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
