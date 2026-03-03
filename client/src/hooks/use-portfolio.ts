@@ -2,8 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { api, type MessageInput } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 
-// --- STATIC DATA (no database needed) ---
-
 const staticProjects = [
   {
     id: 1,
@@ -32,7 +30,7 @@ const staticProjects = [
     techStack: ["C++", "Data Structures", "BST"],
     imageUrl: "word.png",
     githubUrl: "https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary",
-    liveUrl: "https://word-dictionary-demo.com",
+    liveUrl: null,
     order: 3,
   },
 ];
@@ -48,7 +46,6 @@ const staticTimeline = [
   },
 ];
 
-// GET projects - now uses static data
 export function useProjects() {
   return {
     data: staticProjects,
@@ -57,7 +54,6 @@ export function useProjects() {
   };
 }
 
-// GET timeline - now uses static data
 export function useTimeline() {
   return {
     data: staticTimeline,
@@ -66,7 +62,6 @@ export function useTimeline() {
   };
 }
 
-// POST /api/messages - still uses API for contact form
 export function useSendMessage() {
   const { toast } = useToast();
 
@@ -93,7 +88,6 @@ export function useSendMessage() {
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
-        variant: "default",
       });
     },
     onError: (error) => {
