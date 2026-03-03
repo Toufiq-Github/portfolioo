@@ -1,47 +1,75 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { api, type MessageInput } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 
-// GET /api/projects
+// --- STATIC DATA (no database needed) ---
+
+const staticProjects = [
+  {
+    id: 1,
+    title: "Ecommerce Web App",
+    description: "A full-featured ecommerce platform with advanced filtering, cart management, and secure checkout process.",
+    techStack: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+    imageUrl: "Ecommerce.png",
+    githubUrl: "https://github.com/Toufiq-Github/E-commerce-Website",
+    liveUrl: "https://ecommerce-demo.com",
+    order: 1,
+  },
+  {
+    id: 2,
+    title: "Retinal Disease Detection",
+    description: "Advanced deep learning system for automated detection of retinal diseases using a Hybrid Deep Learning Model with Explainable AI (XAI) for clinical transparency.",
+    techStack: ["Python", "Deep Learning", "TensorFlow", "OpenCV", "XAI"],
+    imageUrl: "retina.png",
+    githubUrl: "https://github.com/Toufiq-Github/Retina_Disease_Classifiaction",
+    liveUrl: null,
+    order: 2,
+  },
+  {
+    id: 3,
+    title: "Word Dictionary",
+    description: "A efficient dictionary application built using C++ with custom binary search tree implementation for fast word retrieval and management.",
+    techStack: ["C++", "Data Structures", "BST"],
+    imageUrl: "word.png",
+    githubUrl: "https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary",
+    liveUrl: "https://word-dictionary-demo.com",
+    order: 3,
+  },
+];
+
+const staticTimeline = [
+  {
+    id: 1,
+    title: "Bachelor of Science, Computer Science & Engineering",
+    organization: "EAST WEST UNIVERSITY – Dhaka, Bangladesh",
+    period: "Oct 2021 – April 2026",
+    type: "education",
+    order: 1,
+  },
+];
+
+// GET projects - now uses static data
 export function useProjects() {
-  return useQuery({
-    queryKey: [api.projects.list.path],
-    queryFn: async () => {
-      const res = await fetch(api.projects.list.path);
-      if (!res.ok) throw new Error("Failed to fetch projects");
-      return api.projects.list.responses[200].parse(await res.json());
-    },
-  });
+  return {
+    data: staticProjects,
+    isLoading: false,
+    isError: false,
+  };
 }
 
-// GET /api/skills
-export function useSkills() {
-  return useQuery({
-    queryKey: [api.skills.list.path],
-    queryFn: async () => {
-      const res = await fetch(api.skills.list.path);
-      if (!res.ok) throw new Error("Failed to fetch skills");
-      return api.skills.list.responses[200].parse(await res.json());
-    },
-  });
-}
-
-// GET /api/timeline
+// GET timeline - now uses static data
 export function useTimeline() {
-  return useQuery({
-    queryKey: [api.timeline.list.path],
-    queryFn: async () => {
-      const res = await fetch(api.timeline.list.path);
-      if (!res.ok) throw new Error("Failed to fetch timeline");
-      return api.timeline.list.responses[200].parse(await res.json());
-    },
-  });
+  return {
+    data: staticTimeline,
+    isLoading: false,
+    isError: false,
+  };
 }
 
-// POST /api/messages
+// POST /api/messages - still uses API for contact form
 export function useSendMessage() {
   const { toast } = useToast();
-  
+
   return useMutation({
     mutationFn: async (data: MessageInput) => {
       const validated = api.messages.create.input.parse(data);
@@ -50,7 +78,7 @@ export function useSendMessage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(validated),
       });
-      
+
       if (!res.ok) {
         if (res.status === 400) {
           const error = api.messages.create.responses[400].parse(await res.json());
@@ -58,7 +86,7 @@ export function useSendMessage() {
         }
         throw new Error("Failed to send message");
       }
-      
+
       return api.messages.create.responses[201].parse(await res.json());
     },
     onSuccess: () => {
