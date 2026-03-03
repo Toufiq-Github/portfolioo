@@ -38,4 +38,5 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  base: process.env.VITE_BASE_PATH || "/portfolioo",
 });
