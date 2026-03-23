@@ -4,8 +4,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -13,20 +13,27 @@ import aboutPhoto from "@assets/DP_(2)_1771706625848.png";
 
 import ecommercePhoto from "@assets/Ecommerce_1772049675240.png";
 import retinaPhoto from "@assets/retina_1772049675238.png";
-import wordPhoto from "@assets/word_1772049657411.png";
+import promptRefinerPhoto from "@assets/PromptRefiner.png";
 import dictionaryThumb from "@assets/dic_1772288792898.png";
 import hangmanThumb from "@assets/360_F_511071154_7bfMnKC9wucqHKyDQjYEjJs7qKcfZh7W_1772135739870.jpg";
 
 const assetMap: Record<string, string> = {
   "Ecommerce.png": ecommercePhoto,
   "retina.png": retinaPhoto,
-  "word.png": wordPhoto,
+  "PromptRefiner.png": promptRefinerPhoto,
 };
 
 export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
   const { data: timeline, isLoading: timelineLoading } = useTimeline();
   const [hoveredAbout, setHoveredAbout] = useState<string | null>(null);
+
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: skillsScrollProgress } = useScroll({
+    target: skillsRef,
+    offset: ["start start", "end start"]
+  });
+  const skillsY = useTransform(skillsScrollProgress, [0, 1], ["0%", "50%"]);
 
   if (projectsLoading || timelineLoading) {
     return (
@@ -150,12 +157,14 @@ export default function Portfolio() {
           </section>
         </div>
 
-        {/* Skills Section - Sticky */}
-        <div className="sticky top-0 h-screen z-0 overflow-hidden flex items-center justify-center bg-white">
-          <SkillsSection />
+        {/* Skills Section - Parallax Background */}
+        <div ref={skillsRef} className="relative h-screen z-0 overflow-hidden bg-white">
+          <motion.div style={{ y: skillsY }} className="w-full h-full flex items-center justify-center">
+            <SkillsSection />
+          </motion.div>
         </div>
 
-        {/* Projects Section - Overlays Skills */}
+        {/* Projects Section */}
         <section id="projects" className="relative z-20 pt-24 pb-24 bg-black rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
