@@ -14,13 +14,22 @@ async function seedDatabase() {
 
   await db.insert(projects).values([
     {
-      title: "Ecommerce Web App",
+      title: "Clothiva - Ecommerce Store",
       description: "A full-featured ecommerce platform with advanced filtering, cart management, and secure checkout process.",
       techStack: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
       imageUrl: "Ecommerce.png",
       githubUrl: "https://github.com/Toufiq-Github/E-commerce-Website",
-      liveUrl: "",
+      liveUrl: "https://clothivastore.vercel.app/",
       order: 1
+    },
+    {
+      title: "Prompt Refiner",
+      description: "An AI-powered tool to enhance and refine prompts for better results. Improves prompt clarity and effectiveness for various applications.",
+      techStack: ["React", "TypeScript", "OpenAI", "Tailwind CSS"],
+      imageUrl: "PromptRefiner.png",
+      githubUrl: "",
+      liveUrl: "https://enhenceprompt.vercel.app/",
+      order: 2
     },
     {
       title: "Retinal Disease Detection",
@@ -28,15 +37,6 @@ async function seedDatabase() {
       techStack: ["Python", "Deep Learning", "TensorFlow", "OpenCV", "XAI"],
       imageUrl: "retina.png",
       githubUrl: "https://github.com/Toufiq-Github/Retina_Disease_Classifiaction",
-      order: 2
-    },
-    {
-      title: "Word Dictionary",
-      description: "A efficient dictionary application built using C++ with custom binary search tree implementation for fast word retrieval and management.",
-      techStack: ["C++", "Data Structures", "BST"],
-      imageUrl: "word.png",
-      githubUrl: "https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary",
-      liveUrl: "",
       order: 3
     }
   ]);

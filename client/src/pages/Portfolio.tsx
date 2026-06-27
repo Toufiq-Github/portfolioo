@@ -231,7 +231,7 @@ export default function Portfolio() {
                         <Button 
                           size="lg"
                           className="bg-primary hover:bg-white text-black px-10 rounded-full h-14 text-lg font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3"
-                          onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637', '_blank')}
+                          onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637?via%3Dihub', '_blank')}
                         >
                           View Paper
                           <motion.span
@@ -283,7 +283,7 @@ export default function Portfolio() {
                 whileHover={{ y: -10 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s', '_blank')}>
+                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=7s', '_blank')}>
                   <img src={dictionaryThumb} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
@@ -299,7 +299,7 @@ export default function Portfolio() {
                 whileHover={{ y: -10 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q', '_blank')}>
+                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q&t=1s', '_blank')}>
                   <img src={hangmanThumb} alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
