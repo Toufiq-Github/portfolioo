@@ -3,7 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-scroll";
 import { FaGithub, FaLinkedin, FaYoutube, FaFileDownload } from "react-icons/fa";
-import profileHero from "@assets/Profile_Photo_1771706439626.png";
+import profileHero from "@assets/DP_(2)_1771706625848.png";
 
 export function Hero() {
   return (
