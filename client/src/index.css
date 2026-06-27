@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%; /* Exact Black #000000 */
+  --foreground: 210 20% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 20% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 0 0% 70%; /* Light Gray Accent */
+  --primary-foreground: 240 10% 4%;
+  --secondary: 0 0% 70%;
+  --secondary-foreground: 240 10% 4%;
+  --muted: 215 16% 47%;
+  --muted-foreground: 215 16% 65%;
+  --accent: 0 0% 70%;
+  --accent-foreground: 240 10% 4%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 0 0% 70%;
+  --radius: 0.75rem;
+  --ash: 0 0% 50%;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-300;
+    font-family: 'Satoshi', 'Inter', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Satoshi', 'Poppins', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', 'Poppins', sans-serif;
+    @apply font-medium tracking-tight !important; /* Force non-bold for section names */
+  }
+}
+
+.text-gradient {
+  @apply text-primary; /* Use solid accent color instead of gradient if requested, or keep it light gray */
+}
+
+@layer utilities {
+  .bg-ash {
+    background-color: hsl(0 0% 50%);
+  }
+  .border-ash {
+    border-color: hsl(0 0% 50% / 0.3);
+  }
+}

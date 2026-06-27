@@ -1,0 +1,40 @@
+In the navebar icon section write shafaeat into the color of resume button.
+Then add this link there accordingly . remove twitter and replace it with youtube icon
+Github   https://github.com/Toufiq-Github 
+Linkedine  https://www.linkedin.com/in/shafaeat-hasan-toufiq/
+Youtube   https://www.youtube.com/@CodeRunnerr
+
+
+
+In about me section, remove the experience, committee and project part,   then  Replace the text that is already there with this: “Hello! I'm Shafaeat Hasan Toufiq. I have completed my Bachelor's degree in Computer Science & Engineering at East West University, Dhaka. I have a strong foundation in programming with a growing interest in machine learning and software development.
+Over the years, I've built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Data Science, and Software Engineering. Beyond coding, I'm always eager to embrace new challenges and contribute to innovative projects.
+Alongside my academic journey, I also create technical content on YouTube, where I share project tutorials and lessons that simplify complex topics for beginners and students, helping them gain practical skills and confidence in technology.
+“
+
+In skill section add these skill to, ExpressJS ,MongoDB. MySQL,oracle, Linux, 
+
+In project section add this github link on the project.
+Word dictionary  github  https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary
+Retinal diseases classification github  https://github.com/Toufiq-Github/Retina_Disease_Classifiaction
+E commerce webite github  https://github.com/Toufiq-Github/E-commerce-Website
+User should get a view on github button to directily acces this project ftom the website
+
+Separate my experience section and in the experience section make it I am researcher , add this paper link which is already been published. Link https://www.sciencedirect.com/science/article/pii/S2352340925008637
+
+Lastly add a section for showcasing my youtube video and channel with the link. Where I demosrtrate how to create project. 
+First video is about word dictionary making and here is the link https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s  title and description - Word Dictionary Project in C++
+Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.
+
+Then , handman project using c and link is https://www.youtube.com/watch?v=NDYY6tix2-Q  tile and description - Hangman Game Project using C
+Implementation of the classic Hangman word guessing game in C programming language.
+
+Lastly my channel link https://www.youtube.com/@CodeRunnerr 
+Create them into block and 
+
+Remove the original send message section and add this properly “Get in Touch
+Feel free to reach out for collaborations or just a friendly hello!
+Email
+safaeathasantoufiq@gmail.com
+Location
+Dhaka, Bangladesh
+Connect With Me”

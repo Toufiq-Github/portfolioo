@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafaeat Hasan Toufiq | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0B0F1A;
+            color: #FFFFFF;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(to right, #34D399, #3B82F6);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #34D399, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(to right, #34D399, #3B82F6);
+            padding: 2px;
+        }
+        
+        .gradient-border-inner {
+            background: #0B0F1A;
+            border-radius: 9999px;
+        }
+        
+        .hero-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: linear-gradient(to right, #34D399, #3B82F6) !important;
+        }
+        
+        .skill-icon:hover i {
+            color: #FFFFFF !important;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-card {
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: linear-gradient(to bottom, #34D399, #3B82F6);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+            color: #FFFFFF;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(to right, #34D399, #3B82F6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            color: #34D399;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #34D399, transparent);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 5px;
+            border: 1px solid #111827;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+        
+        .gradient-hover:hover {
+            background: linear-gradient(to right, #34D399, #3B82F6) !important;
+            color: #FFFFFF !important;
+        }
+        
+        .gradient-hover-text:hover {
+            background: linear-gradient(to right, #34D399, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-[#0B0F1A]/85 backdrop-blur-md z-50 shadow-lg border-b border-[#1F2937]/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Shafaeat</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active-nav">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#youtube" class="nav-link">YouTube</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden gradient-text text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0F1A]/90 w-full border-t border-[#1F2937]/50">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="nav-link active-nav">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#youtube" class="nav-link">YouTube</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-[#0B0F1A]">
+        <div class="particles" id="particles"></div>
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="hero-text text-4xl md:text-6xl font-bold mb-6 text-[#FFFFFF]">
+                <span style="animation-delay: 0.1s">Shafaeat</span> 
+                <span style="animation-delay: 0.3s">Hasan</span> 
+                <span style="animation-delay: 0.5s">Toufiq</span>
+            </h1>
+            <div class="hero-text text-xl md:text-2xl mb-8 text-[#9CA3AF]">
+                <span style="animation-delay: 0.7s">Computer Science Student</span> 
+                <span style="animation-delay: 1.2s" class="text-[#FFFFFF]">|</span> 
+                <span style="animation-delay: 1.7s">Data Science Major</span> 
+                <span style="animation-delay: 2.2s" class="text-[#FFFFFF]">|</span> 
+                <span style="animation-delay: 2.7s">Machine Learning Enthusiast</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mt-12">
+                <a href="#about" class="px-6 py-3 gradient-bg text-[#FFFFFF] font-bold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    About Me
+                </a>
+                <div class="gradient-border rounded-full">
+                    <a href="#projects" class="block px-6 py-2.5 gradient-border-inner text-[#FFFFFF] font-bold transition-all duration-300 transform hover:scale-105">
+                        My Projects
+                    </a>
+                </div>
+                <div class="gradient-border rounded-full">
+                    <a href="#contact" class="block px-6 py-2.5 gradient-border-inner text-[#FFFFFF] font-bold transition-all duration-300 transform hover:scale-105">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#about" class="animate-bounce inline-block gradient-text">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#111827]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-[#34D399] shadow-lg">
+                        <img src="https://i.ibb.co/2Yk6W4bs/profile.jpg" alt="Shafaeat Hasan Toufiq" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pr-16" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <p class="text-base mb-6 text-justify text-[#FFFFFF]">
+                        Hello! I'm <span class="text-[#34D399] font-medium">Shafaeat Hasan Toufiq</span>, a passionate Computer Science student currently pursuing my Bachelor's degree in Computer Science & Engineering at East West University, Dhaka. I have a strong foundation in programming with a growing interest in machine learning and software development.
+                    </p>
+                    <p class="text-base mb-6 text-justify text-[#FFFFFF]">
+                        Over the years, I've built a solid grasp of core computer science concepts, excelling in areas such as Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Data Science, and Software Engineering. Beyond coding, I'm always eager to embrace new challenges and contribute to innovative projects.
+                    </p>
+                    <p class="text-base mb-6 text-justify text-[#FFFFFF]">
+                        Alongside my academic journey, I also create technical content on YouTube, where I share project tutorials and lessons that simplify complex topics for beginners and students, helping them gain practical skills and confidence in technology.
+                    </p>
+                    <p class="text-base text-justify text-[#FFFFFF]">
+                        My ultimate goal is to leverage my skills in machine learning and software engineering to develop practical solutions that address real-world problems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-[#0B0F1A]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">Education</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item relative bg-[#1F2937] p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1000">
+                    <h3 class="text-xl font-bold mb-2 text-[#FFFFFF]">Bachelor of Science, Computer Science & Engineering</h3>
+                    <p class="text-[#34D399] font-medium mb-1">EAST WEST UNIVERSITY – Dhaka, Bangladesh</p>
+                    <p class="text-[#9CA3AF]">Oct 2021 – Feb 2026 (Expected)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-[#111827]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">Skills</h2>
+            
+            <h3 class="text-xl font-bold mb-6 text-[#34D399]">Technical Skills</h3>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 mb-12" data-aos="fade-up" data-aos-duration="1000">
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-cuttlefish text-4xl mb-2 gradient-text"></i>
+                    <span>C</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-cuttlefish text-4xl mb-2 gradient-text"></i>
+                    <span>C++</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-java text-4xl mb-2 gradient-text"></i>
+                    <span>Java</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-python text-4xl mb-2 gradient-text"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-js text-4xl mb-2 gradient-text"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-react text-4xl mb-2 gradient-text"></i>
+                    <span>React</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-node-js text-4xl mb-2 gradient-text"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fas fa-database text-4xl mb-2 gradient-text"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fas fa-database text-4xl mb-2 gradient-text"></i>
+                    <span>MySQL</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fas fa-brain text-4xl mb-2 gradient-text"></i>
+                    <span>TensorFlow</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fas fa-database text-4xl mb-2 gradient-text"></i>
+                    <span>Oracle</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-git-alt text-4xl mb-2 gradient-text"></i>
+                    <span>Git</span>
+                </div>
+                <div class="skill-icon flex flex-col items-center p-4 bg-[#1F2937] rounded-lg cursor-pointer border border-[#2D3748] group">
+                    <i class="fab fa-linux text-4xl mb-2 gradient-text"></i>
+                    <span>Linux</span>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-bold mb-6 text-[#34D399]">Soft Skills</h3>
+            <div class="flex flex-wrap gap-3" data-aos="fade-up" data-aos-duration="1000">
+                <span class="px-4 py-2 bg-[#1F2937] rounded-full border border-[#2D3748] text-[#FFFFFF]">Communication</span>
+                <span class="px-4 py-2 bg-[#1F2937] rounded-full border border-[#2D3748] text-[#FFFFFF]">Self-discipline</span>
+                <span class="px-4 py-2 bg-[#1F2937] rounded-full border border-[#2D3748] text-[#FFFFFF]">Adaptability</span>
+                <span class="px-4 py-2 bg-[#1F2937] rounded-full border border-[#2D3748] text-[#FFFFFF]">Analysis</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-[#0B0F1A]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748]" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-[#34D399]">Word Dictionary (C++)</h3>
+                        <p class="text-[#9CA3AF] mb-4">Menu-based dictionary using binary search tree</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">C++</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">Data Structures</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">BST</span>
+                        </div>
+                        <a href="https://github.com/Toufiq-Github/Mini-Projects/tree/main/Word%20Dictionary%20-%20Algorithm/Dictionary" target="_blank" class="inline-flex items-center gradient-hover-text">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-[#34D399]">Retinal Disease Detection</h3>
+                        <p class="text-[#9CA3AF] mb-4">Using a Hybrid Deep Learning Model with Explainable AI (XAI)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">Python</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">Deep Learning</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">TensorFlow</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">XAI</span>
+                        </div>
+                        <a href="https://github.com/Toufiq-Github/Retina_Disease_Classifiaction" target="_blank" class="inline-flex items-center gradient-hover-text">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-[#34D399]">E-commerce Website</h3>
+                        <p class="text-[#9CA3AF] mb-4">Full-featured e-commerce platform</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">React</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">Node.js</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">MongoDB</span>
+                            <span class="px-3 py-1 bg-[#111827] rounded-full text-sm text-[#FFFFFF]">Express</span>
+                        </div>
+                        <a href="https://github.com/Toufiq-Github/E-commerce-Website" target="_blank" class="inline-flex items-center gradient-hover-text">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-lg text-[#34D399]">Future: Building research-based projects & publishing papers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-[#111827]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">Experience</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item relative bg-[#1F2937] p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-duration="1000">
+                    <h3 class="text-xl font-bold mb-2 text-[#FFFFFF]">Research Assistant</h3>
+                    <p class="text-[#34D399] font-medium">East West University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="py-20 bg-[#0B0F1A]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">YouTube Content</h2>
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Video 1 -->
+                <div class="video-card bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748]" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="relative pb-[56.25%] overflow-hidden">
+                        <img src="https://i.ibb.co/C41vCwk/word-dictionary-thumbnail.jpg" alt="YouTube Video" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <a href="https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=6s" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all duration-300">
+                            <i class="fas fa-play text-3xl text-white opacity-80 hover:opacity-100"></i>
+                        </a>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2 text-[#FFFFFF]">Word Dictionary Project in C++</h3>
+                        <p class="text-[#9CA3AF] text-sm">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="relative pb-[56.25%] overflow-hidden">
+                        <img src="https://i.ibb.co/VWLV2kRj/hangman-game-thumbnail.jpg" alt="YouTube Video" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <a href="https://www.youtube.com/watch?v=NDYY6tix2-Q" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-all duration-300">
+                            <i class="fas fa-play text-3xl text-white opacity-80 hover:opacity-100"></i>
+                        </a>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2 text-[#FFFFFF]">Hangman Game Project using C</h3>
+                        <p class="text-[#9CA3AF] text-sm">Implementation of the classic Hangman word guessing game in C programming language.</p>
+                    </div>
+                </div>
+                
+                <!-- Channel Block -->
+                <div class="bg-[#1F2937] rounded-lg overflow-hidden shadow-md border border-[#2D3748] p-8 flex flex-col justify-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="text-center">
+                        <i class="fab fa-youtube text-7xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-[#FFFFFF]">Visit My Channel</h3>
+                        <p class="text-[#9CA3AF] mb-8">Check out more programming tutorials and projects on my YouTube channel</p>
+                        <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" class="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium text-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fab fa-youtube mr-3"></i> View Channel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#111827]">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12">Contact Me</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-[#1F2937] p-8 rounded-lg shadow-md border border-[#2D3748]">
+                    <h3 class="text-2xl font-bold mb-6 text-[#34D399] text-center">Get in Touch</h3>
+                    <p class="mb-8 text-[#FFFFFF] text-center">Feel free to reach out for collaborations or just a friendly hello!</p>
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope gradient-text text-xl mr-4"></i>
+                            <div>
+                                <p class="font-medium text-[#FFFFFF]">Email</p>
+                                <a href="mailto:safaeathasantoufiq@gmail.com" class="text-[#FFFFFF] hover:underline">safaeathasantoufiq@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt gradient-text text-xl mr-4"></i>
+                            <div>
+                                <p class="font-medium text-[#FFFFFF]">Location</p>
+                                <p class="text-[#9CA3AF]">Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="text-xl font-bold mb-6 text-[#34D399] text-center">Connect With Me</h3>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://github.com/Toufiq-Github" target="_blank" class="w-12 h-12 flex items-center justify-center bg-[#111827] gradient-hover rounded-full transition-all duration-300 transform hover:scale-110 text-[#FFFFFF]">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/shafaeat-hasan-toufiq/" target="_blank" class="w-12 h-12 flex items-center justify-center bg-[#111827] gradient-hover rounded-full transition-all duration-300 transform hover:scale-110 text-[#FFFFFF]">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" class="w-12 h-12 flex items-center justify-center bg-[#111827] hover:bg-red-600 hover:text-white rounded-full transition-all duration-300 transform hover:scale-110 text-[#FFFFFF]">
+                                <i class="fab fa-youtube text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#0B0F1A] border-t border-[#1F2937]">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-[#9CA3AF]">&copy; 2023 Shafaeat Hasan Toufiq. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation with softer settings
+        AOS.init({
+            duration: 1000,  // Slower animation for softer effect
+            easing: 'ease-out',  // Softer easing function
+            once: true,
+            offset: 50  // Reduced offset for earlier trigger
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                    });
+                    
+                    this.classList.add('active-nav');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                    });
+                    
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active-nav');
+                    }
+                }
+            });
+        });
+
+        // Create particles for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 5px
+                const size = Math.random() * 3 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animate hero text
+        function animateHeroText() {
+            const heroTextElements = document.querySelectorAll('.hero-text span');
+            
+            heroTextElements.forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.opacity = '1';
+                    span.style.transform = 'translateY(0)';
+                }, index * 200 + 500); // Staggered animation
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateHeroText();
+        });
+    </script>
+</body>
+</html>

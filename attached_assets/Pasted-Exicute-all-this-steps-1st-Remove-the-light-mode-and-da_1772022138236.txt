@@ -1,0 +1,59 @@
+Exicute all this steps:
+1st Remove the light mode and dark mode. Keep it as it was previously.
+Make all the fonts as they were previously.
+In about me section, make the picture smaller as it was previously.
+2nd In the skills and technology section, keep a bit of space from both the left and right sides and make the content move to the center a bit.
+3rd And also for the skills palette, while one skill palette is on the top, and at the same time other skill palette name should be visible, so that people know what the bellow skills palette below has, it should work for both skill palettes. And their transition should be clean, bit slow and smooth.
+4th In the data science skill palette, remove c,c++ as skill and add these: OpenCV,kerras, numpy, xgboost.
+5th And for the circular part, remove the name like web/data form center, and there should be two circular moving, one will be for web which will move clockwise,and will be top, and the inside circular skills will be from data science, those will be inside and moving anticlockwise.
+6th And overall, it will show two half circles; the other part won’t be visible on the page, but it will circulate
+
+
+7th Black Hero + About Section (But Make It Look Intentional)
+Step 1: Use ONE exact background color
+background-color: #000000;
+Not:
+•	#0f0f0f in one section
+•	#111111 in another
+Exact match.
+________________________________________
+Step 2: Remove section spacing gap
+Most beginners forget this:
+margin: 0;
+padding-top: 0;
+Or control spacing manually.
+________________________________________
+Step 3: Use a Transition Effect Between Them
+Here’s how to make it feel like one image:
+Instead of giving each section its own background…
+Create ONE wrapper:
+<div class="dark-section">
+   <section class="hero"></section>
+   <section class="about"></section>
+</div>
+And apply:
+.dark-section {
+  background: #000;
+}
+Now visually it’s one block.
+
+8th Animation Direction Advice (Be Careful)
+Don’t:
+•	Slide everything from left.
+•	Bounce elements.
+•	Overuse delay.
+Do:
+•	Slow fade
+•	Slight upward motion (20–30px max)
+•	0.6s–0.8s duration
+•	Ease: ease-out
+
+
+9th Lastly ,
+•	Font → satoshi
+•	Black hero
+•	White big bold heading(which is my name)
+•	Small muted subtitle
+•	One accent color only
+•	Smooth scroll reveal
+Clean. Sharp. Technical. Mature.
