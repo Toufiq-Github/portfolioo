@@ -55,10 +55,12 @@ export function Hero() {
                   View My Work
                 </Button>
               </Link>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-2" onClick={() => window.open('https://github.com/Toufiq-Github', '_blank')}>
-                <FaFileDownload />
-                Resume
-              </Button>
+              <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-2">
+                  <FaFileDownload />
+                  Resume
+                </Button>
+              </a>
               <Link to="contact" smooth={true} duration={500} offset={-80}>
                 <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
                   Contact Me

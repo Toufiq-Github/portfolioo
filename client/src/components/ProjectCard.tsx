@@ -56,29 +56,31 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
         <div className="flex items-center gap-4 pt-4 justify-center md:justify-start">
           {project.githubUrl && (
-            <Button 
-              variant="outline"
-              size="lg"
-              className="rounded-full border-white/20 hover:border-primary hover:bg-primary/10 transition-all flex items-center gap-2"
-              onClick={() => window.open(project.githubUrl || '', '_blank')}
-            >
-              <Github className="w-5 h-5" />
-              Code
-            </Button>
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Button 
+                variant="outline"
+                size="lg"
+                className="rounded-full border-white/20 hover:border-primary hover:bg-primary/10 transition-all flex items-center gap-2"
+              >
+                <Github className="w-5 h-5" />
+                Code
+              </Button>
+            </a>
           )}
           {project.liveUrl && !project.techStack.some(t => t.toLowerCase().includes('learning') || t.toLowerCase().includes('data science') || t.toLowerCase().includes('ml')) && (
             <motion.div 
               whileTap={{ scale: 0.9, y: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Button 
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25"
-                onClick={() => window.open(project.liveUrl || '', '_blank')}
-              >
-                <ExternalLink className="w-5 h-5" />
-                Live Demo
-              </Button>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-black rounded-full px-8 flex items-center gap-2 font-bold shadow-lg shadow-primary/25"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  Live Demo
+                </Button>
+              </a>
             </motion.div>
           )}
         </div>

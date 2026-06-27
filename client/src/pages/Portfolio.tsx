@@ -228,10 +228,10 @@ export default function Portfolio() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
+                      <a href="https://www.sciencedirect.com/science/article/pii/S2352340925008637?via%3Dihub" target="_blank" rel="noopener noreferrer">
                         <Button 
                           size="lg"
                           className="bg-primary hover:bg-white text-black px-10 rounded-full h-14 text-lg font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3"
-                          onClick={() => window.open('https://www.sciencedirect.com/science/article/pii/S2352340925008637?via%3Dihub', '_blank')}
                         >
                           View Paper
                           <motion.span
@@ -241,6 +241,7 @@ export default function Portfolio() {
                             →
                           </motion.span>
                         </Button>
+                      </a>
                       </motion.div>
                     </div>
                   </div>
@@ -283,12 +284,12 @@ export default function Portfolio() {
                 whileHover={{ y: -10 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=7s', '_blank')}>
+                <a href="https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=7s" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
                   <img src={dictionaryThumb} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
                   </div>
-                </div>
+                </a>
                 <div className="p-6">
                   <h3 className="text-lg font-medium mb-3 text-white">Word Dictionary Project in C++</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
@@ -299,12 +300,12 @@ export default function Portfolio() {
                 whileHover={{ y: -10 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <div className="aspect-video relative cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=NDYY6tix2-Q&t=1s', '_blank')}>
+                <a href="https://www.youtube.com/watch?v=NDYY6tix2-Q&t=1s" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
                   <img src={hangmanThumb} alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
                   </div>
-                </div>
+                </a>
                 <div className="p-6">
                   <h3 className="text-lg font-medium mb-3 text-white">Hangman Game Project using C</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">Implementation of the classic Hangman word guessing game in C programming language.</p>
@@ -318,13 +319,14 @@ export default function Portfolio() {
                 <FaYoutube className="text-6xl text-primary mb-6" />
                 <h3 className="text-xl font-medium mb-3 text-white">Visit My Channel</h3>
                 <p className="text-muted-foreground mb-8 text-sm">Check out more programming tutorials and projects on my YouTube channel</p>
-                <Button 
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-black rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
-                  onClick={() => window.open('https://www.youtube.com/@CodeRunnerr', '_blank')}
-                >
-                  View Channel
-                </Button>
+                <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer">
+                  <Button 
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-black rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
+                  >
+                    View Channel
+                  </Button>
+                </a>
               </motion.div>
             </div>
           </div>
