@@ -31,7 +31,7 @@ export function Hero() {
           <div className="text-lg md:text-xl font-medium text-muted-foreground mb-6 h-[60px] md:h-auto">
             <TypeAnimation
               sequence={[
-                'Web Developer',
+                'Full-Stack Software Developer',
                 2000,
                 'Data Science Major',
                 2000,

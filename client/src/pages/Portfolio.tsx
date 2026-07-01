@@ -64,7 +64,7 @@ export default function Portfolio() {
                     About Me
                   </span>
                   <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight text-white">
-                    A focused software engineer building high-impact products and learning-driven AI solutions.
+                    I’m a CSE graduate with experience in full-stack development, AI, machine learning, deep learning, and data science.
                   </h2>
                   <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
                     I’m <span className="text-white font-semibold">Shafaeat Hasan Toufiq</span>, a Computer Science & Engineering graduate from <span className="text-primary font-medium">East West University</span>, Dhaka. I specialize in full-stack development, data science, and machine learning, and I enjoy turning complex technical challenges into polished, user-centered solutions.
@@ -106,17 +106,9 @@ export default function Portfolio() {
                     </div>
 
                     <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur-xl">
-                      <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Content Creation</p>
-                      <h3 className="text-2xl font-semibold text-white mb-3">YouTube Education</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        I create technical content on YouTube (@CodeRunnerr), sharing tutorials and practical lessons that help developers gain confidence and build real-world skills.
-                      </p>
-                    </div>
-
-                    <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur-xl">
                       <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Core Strengths</p>
                       <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        I excel in Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, and Software Engineering. I’m motivated by innovation and solving meaningful problems.
+                        I excel in Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, and System Design. I’m motivated by innovation and solving meaningful problems.
                       </p>
                     </div>
                   </div>
