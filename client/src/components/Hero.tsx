@@ -55,7 +55,7 @@ export function Hero() {
                   View My Work
                 </Button>
               </Link>
-              <a href="https://github.com/Toufiq-Github" target="_blank" rel="noopener noreferrer">
+              <a href="/Toufiq__Resume.pdf" download="Toufiq__Resume.pdf" className="inline-block">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-2">
                   <FaFileDownload />
                   Resume

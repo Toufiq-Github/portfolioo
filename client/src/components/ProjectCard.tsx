@@ -18,7 +18,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${!isEven ? 'md:flex-row-reverse' : ''}`}
+      className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${!isEven ? 'md:flex-row-reverse' : ''} bg-white/5 border border-white/10 rounded-[2.5rem] shadow-2xl p-8 backdrop-blur-xl transition-all duration-500 hover:border-primary/40`}
     >
       {/* Project Image */}
       <motion.div 

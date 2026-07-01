@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { 
-  SiReact, SiNodedotjs, SiTypescript, SiPython, SiJavascript, SiGit, 
-  SiMongodb, SiMysql, SiLinux, SiOracle, SiExpress, 
-  SiOpenjdk, SiTensorflow, SiPytorch, SiPandas, SiScikitlearn,
-  SiHtml5, SiTailwindcss, SiNextdotjs, SiJavascript as SiJsIcon,
+  SiReact, SiNodedotjs, SiTypescript, SiPython, SiJavascript, SiGit,
+  SiMongodb, SiMysql, SiLinux, SiOracle,
+  SiOpenjdk, SiSpringboot, SiAngular,
+  SiTensorflow, SiPytorch, SiPandas, SiScikitlearn,
+  SiHtml5, SiTailwindcss, SiNextdotjs,
+  SiJavascript as SiJsIcon,
   SiOpencv, SiKeras, SiNumpy, SiPostgresql, SiFirebase, SiDocker, SiVite
 } from "react-icons/si";
 import { CheckCircle2 } from "lucide-react";
@@ -18,9 +20,11 @@ const iconMap: Record<string, React.ElementType> = {
   "Git": SiGit,
   "MongoDB": SiMongodb,
   "MySQL": SiMysql,
+  "SQL": SiMysql,
   "Linux": SiLinux,
   "Oracle": SiOracle,
-  "ExpressJS": SiExpress,
+  "Spring Boot": SiSpringboot,
+  "Angular": SiAngular,
   "OpenCV": SiOpencv,
   "Keras": SiKeras,
   "NumPy": SiNumpy,
@@ -38,7 +42,27 @@ const iconMap: Record<string, React.ElementType> = {
   "Vite": SiVite,
 };
 
-const webSkills = ["React", "Node.js", "ExpressJS", "JavaScript", "TypeScript", "MongoDB", "MySQL", "Git", "HTML5", "Tailwind CSS", "Next.js", "PostgreSQL", "Firebase", "Vite"];
+const webSkills = [
+  "React",
+  "Node.js",
+  "JavaScript",
+  "TypeScript",
+  "MongoDB",
+  "SQL",
+  "MySQL",
+  "OpenJDK",
+  "Spring Boot",
+  "Angular",
+  "Git",
+  "HTML5",
+  "Tailwind CSS",
+  "Next.js",
+  "PostgreSQL",
+  "Firebase",
+  "Docker",
+  "Vite",
+];
+
 const dataSkills = ["Python", "TensorFlow", "PyTorch", "OpenCV", "Keras", "NumPy", "Pandas", "Scikit-Learn", "Docker"];
 
 export function SkillsSection() {
@@ -58,7 +82,7 @@ export function SkillsSection() {
         <div className="mb-8">
           <span className="flex items-center gap-2 text-black font-medium mb-2">
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-            My Expertise
+            Skills
           </span>
           <h2 className="text-3xl md:text-5xl font-medium mb-2 text-black text-center lg:text-left">
             Skills & <span className="text-gray-500">Technologies</span>
@@ -71,18 +95,18 @@ export function SkillsSection() {
             <div className="w-full max-w-md relative mx-auto lg:mx-0">
               {/* Tab Header Controls */}
               <div className="flex gap-4 md:gap-6 mb-8 border-b border-gray-100 pb-4 justify-center lg:justify-start">
-                <button 
-                  onMouseEnter={() => setActiveTab("web")}
-                  className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "web" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
-                >
-                  Web Development
-                </button>
-                <button 
-                  onMouseEnter={() => setActiveTab("data")}
-                  className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "data" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
-                >
-                  Data Science
-                </button>
+                  <button 
+                    onMouseEnter={() => setActiveTab("web")}
+                    className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "web" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
+                  >
+                    Software Development
+                  </button>
+                  <button 
+                    onMouseEnter={() => setActiveTab("data")}
+                    className={`px-5 py-2 rounded-full border transition-all relative font-medium text-sm md:text-base ${activeTab === "data" ? "bg-black text-white border-black shadow-lg" : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"}`}
+                  >
+                    Data Science
+                  </button>
               </div>
 
               {/* Palette Content with Animation Presence */}
@@ -103,7 +127,7 @@ export function SkillsSection() {
                     className="absolute inset-0 p-6 md:p-8 rounded-[2rem] bg-gray-200/40 border border-gray-300/50 shadow-xl backdrop-blur-md cursor-pointer"
                   >
                     <div className="mb-6">
-                      <h3 className={`text-xl font-medium ${activeTab === "web" ? "text-black" : "text-black/40"}`}>Web Development</h3>
+                      <h3 className={`text-xl font-medium ${activeTab === "web" ? "text-black" : "text-black/40"}`}>Software Development</h3>
                     </div>
                     {activeTab === "web" && (
                       <div className="grid grid-cols-2 gap-y-4 md:gap-y-6 gap-x-4">
@@ -113,7 +137,7 @@ export function SkillsSection() {
                               <CheckCircle2 className="w-4 h-4 text-black" />
                               <span className="font-medium text-sm md:text-base text-black">{skill}</span>
                             </div>
-                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Expert</span>
+                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Intermediate</span>
                           </div>
                         ))}
                       </div>
@@ -145,7 +169,7 @@ export function SkillsSection() {
                               <CheckCircle2 className="w-4 h-4 text-black" />
                               <span className="font-medium text-sm md:text-base text-black">{skill}</span>
                             </div>
-                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Expert</span>
+                            <span className="text-[10px] text-gray-500 ml-6 font-medium uppercase tracking-wider">Intermediate</span>
                           </div>
                         ))}
                       </div>
