@@ -70,8 +70,8 @@ export default function Portfolio() {
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-primary shadow-sm shadow-primary/10">
                     About Me
                   </span>
-                  <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight text-white">
-                    I’m a CSE graduate with experience in full-stack development, AI, machine learning, deep learning, and data science.
+                  <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight text-white leading-tight">
+                    I’m a Computer Science graduate with practical experience in full-stack development, Data Science, and AI/ML research.
                   </h2>
                 </div>
 
