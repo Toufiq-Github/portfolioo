@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-scroll";
 import { FaGithub, FaLinkedin, FaYoutube, FaFileDownload } from "react-icons/fa";
 import profileHero from "@assets/DP Linkedine.png";
 
 export function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="hero" className="section-anchor min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background decoration */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] -z-10" />
@@ -50,22 +49,22 @@ export function Hero() {
 
           <div className="flex flex-col items-center md:items-start gap-8">
             <div className="flex flex-row flex-wrap items-center gap-4 justify-center md:justify-start">
-              <Link to="projects" smooth={true} duration={500} offset={-80}>
+              <a href="#projects" className="inline-block">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1">
                   View My Work
                 </Button>
-              </Link>
+              </a>
               <a href="/Toufiq__Resume.pdf" target="_blank" rel="noopener noreferrer" download="Toufiq__Resume.pdf" className="inline-block">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-black px-8 rounded-full h-12 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 flex items-center gap-2">
                   <FaFileDownload />
                   Resume
                 </Button>
               </a>
-              <Link to="contact" smooth={true} duration={500} offset={-80}>
+              <a href="#contact" className="inline-block">
                 <Button variant="outline" size="lg" className="border-border hover:bg-white/5 px-8 rounded-full h-12 text-base font-medium">
                   Contact Me
                 </Button>
-              </Link>
+              </a>
             </div>
             
             <div className="flex items-center gap-6 justify-center md:justify-start">

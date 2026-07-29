@@ -28,9 +28,18 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scroll-padding-top: 6rem;
     -webkit-overflow-scrolling: touch;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis-smooth {
+    scroll-behavior: auto !important;
   }
   
   body {
@@ -59,5 +68,9 @@
   }
   .border-ash {
     border-color: hsl(0 0% 50% / 0.3);
+  }
+
+  .section-anchor {
+    scroll-margin-top: 6rem;
   }
 }

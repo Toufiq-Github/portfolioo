@@ -57,7 +57,7 @@ export default function Portfolio() {
           <Hero />
 
           {/* About Section */}
-          <section id="about" className="py-20 relative overflow-hidden">
+          <section id="about" className="section-anchor py-20 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -130,7 +130,7 @@ export default function Portfolio() {
         </div>
 
         {/* Projects Section */}
-        <section id="projects" className="relative z-20 pt-24 pb-24 bg-black rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        <section id="projects" className="section-anchor relative z-20 pt-24 pb-24 bg-black rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -154,7 +154,7 @@ export default function Portfolio() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="relative z-20 py-24 bg-black">
+        <section id="experience" className="section-anchor relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -217,7 +217,7 @@ export default function Portfolio() {
         </section>
 
         {/* Timeline (Education) Section */}
-        <section id="timeline" className="relative z-20 py-24 bg-black">
+        <section id="timeline" className="section-anchor relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -240,7 +240,7 @@ export default function Portfolio() {
         </section>
 
         {/* YouTube Section */}
-        <section id="youtube" className="relative z-20 py-24 bg-black">
+        <section id="youtube" className="section-anchor relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ export default function Portfolio() {
 
 
         {/* Contact Section */}
-        <section id="contact" className="relative z-20 py-24 bg-black">
+        <section id="contact" className="section-anchor relative z-20 py-24 bg-black">
           <div className="container mx-auto px-6 md:px-12 lg:px-24">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

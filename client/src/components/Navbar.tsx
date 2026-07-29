@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -34,31 +33,24 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
-        <Link 
-          to="hero" 
-          smooth={true} 
-          duration={500} 
+        <a 
+          href="#hero" 
           className="text-2xl font-bold font-poppins cursor-pointer text-white tracking-tighter"
         >
           SHT<span className="text-primary">.</span>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.to}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-80}
-              activeClass="text-primary"
+              href={`#${link.to}`}
               className="text-sm font-medium text-muted-foreground hover:text-white transition-colors cursor-pointer relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -84,17 +76,14 @@ export function Navbar() {
           >
             <div className="flex flex-col items-center py-10 space-y-8">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.name}
-                  to={link.to}
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
+                  href={`#${link.to}`}
                   onClick={() => setIsOpen(false)}
                   className="text-xl font-medium text-muted-foreground hover:text-white transition-colors cursor-pointer"
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
             </div>
           </motion.div>
