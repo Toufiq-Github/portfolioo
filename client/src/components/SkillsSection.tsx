@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { 
   SiReact, SiNodedotjs, SiTypescript, SiPython, SiJavascript, SiGit,
@@ -73,14 +73,26 @@ export function SkillsSection() {
     offset: ["start end", "end start"],
   });
 
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const parallaxOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.25, 1, 0.25]);
-  const orbitScale = useTransform(scrollYProgress, [0, 1], [0.92, 1.04]);
+  const parallaxY = useSpring(useTransform(scrollYProgress, [0, 1], [16, -16]), {
+    stiffness: 80,
+    damping: 24,
+    mass: 0.8,
+  });
+  const parallaxOpacity = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]), {
+    stiffness: 70,
+    damping: 24,
+    mass: 0.8,
+  });
+  const orbitScale = useSpring(useTransform(scrollYProgress, [0, 1], [0.985, 1.01]), {
+    stiffness: 70,
+    damping: 24,
+    mass: 0.8,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prev) => (prev + 0.4) % 360);
-    }, 30);
+      setRotation((prev) => (prev + 0.18) % 360);
+    }, 40);
     return () => clearInterval(interval);
   }, []);
 
@@ -107,7 +119,7 @@ export function SkillsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 items-center">
           {/* Left Side: Overlapping Palettes */}
-          <motion.div style={{ y: parallaxY, x: -20 }} className="relative min-h-[400px] md:min-h-[450px] flex items-center justify-start">
+          <motion.div style={{ y: parallaxY }} className="relative min-h-[400px] md:min-h-[450px] flex items-center justify-start">
             <div className="w-full max-w-md relative mx-auto lg:mx-0">
               {/* Tab Header Controls */}
               <div className="flex gap-4 md:gap-6 mb-8 border-b border-gray-100 pb-4 justify-center lg:justify-start">
