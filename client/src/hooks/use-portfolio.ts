@@ -6,7 +6,7 @@ const staticProjects = [
   {
     id: 1,
     title: "Document Management System",
-    description: "A secure full-stack document management solution for organizing files, managing access, and streamlining collaboration with role-based workflows.",
+    description: "A secure full-stack document management application for organizing files, managing role-based access, automating data extraction, generating reports, and streamlining collaboration.",
     techStack: ["Spring Boot", "Angular", "PostgreSQL", "Spring Security", "JWT", "REST APIs"],
     imageUrl: "DMS.png",
     githubUrl: "https://github.com/Toufiq-Github/sms-frontend",

@@ -29,6 +29,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-overflow-scrolling: touch;
   }
   
   body {

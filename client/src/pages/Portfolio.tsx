@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import retinaPhoto from "@assets/retina_1772049675238.png";
 import promptRefinerPhoto from "@assets/PromptRefiner.png";
 import dmsThumb from "@assets/DMS Thumb (2).png";
 import teamsyncThumb from "@assets/Teamsyncthumb (2).png";
+import wordDictionaryThumb from "../../../attached_assets/lFzRzskAQwatNsmhjwZGAA_1772022213709.jpg";
 
 const assetMap: Record<string, string> = {
   "Ecommerce.png": ecommercePhoto,
@@ -32,7 +33,11 @@ export default function Portfolio() {
     target: skillsRef,
     offset: ["start start", "end start"]
   });
-  const skillsY = useTransform(skillsScrollProgress, [0, 1], ["0%", "50%"]);
+  const skillsY = useSpring(useTransform(skillsScrollProgress, [0, 1], ["0%", "45%"]), {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.8,
+  });
 
   if (projectsLoading || timelineLoading) {
     return (
@@ -246,9 +251,9 @@ export default function Portfolio() {
               YouTube <span className="text-primary">Content</span>
             </motion.h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               <motion.div 
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -10, scale: 1.01 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
                 <a href="https://www.youtube.com/watch?v=P1jIXIShgTk" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
@@ -264,11 +269,11 @@ export default function Portfolio() {
               </motion.div>
 
               <motion.div 
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -10, scale: 1.01 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <a href="https://www.youtube.com/watch?v=P1jIXIShgTk" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
-                  <img src={dmsThumb} alt="Document Management System" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                <a href="https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=347s" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
+                  <img src={wordDictionaryThumb} alt="Word Dictionary Project" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
                   </div>
@@ -277,6 +282,23 @@ export default function Portfolio() {
                   <h3 className="text-lg font-medium mb-3 text-white">Word Dictionary Project in C++</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
                 </div>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ y: -10, scale: 1.01 }}
+                className="bg-white/5 border border-white/10 rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl max-w-sm mx-auto w-full"
+              >
+                <FaYoutube className="text-6xl text-primary mb-6" />
+                <h3 className="text-xl font-medium mb-3 text-white">Visit My Channel</h3>
+                <p className="text-muted-foreground mb-8 text-sm">Explore more programming walkthroughs and project videos on my YouTube channel.</p>
+                <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer">
+                  <Button 
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-black rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
+                  >
+                    View Channel
+                  </Button>
+                </a>
               </motion.div>
             </div>
           </div>
