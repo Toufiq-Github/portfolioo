@@ -265,19 +265,18 @@ export default function Portfolio() {
 
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="bg-white/5 border border-white/10 rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl max-w-sm mx-auto w-full"
+                className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <FaYoutube className="text-6xl text-primary mb-6" />
-                <h3 className="text-xl font-medium mb-3 text-white">Visit My Channel</h3>
-                <p className="text-muted-foreground mb-8 text-sm">Check out more programming tutorials and projects on my YouTube channel</p>
-                <a href="https://www.youtube.com/@CodeRunnerr" target="_blank" rel="noopener noreferrer">
-                  <Button 
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-black rounded-full px-10 h-12 text-base font-bold shadow-lg shadow-primary/20"
-                  >
-                    View Channel
-                  </Button>
+                <a href="https://www.youtube.com/watch?v=P1jIXIShgTk" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
+                  <img src={dmsThumb} alt="Document Management System" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FaYoutube className="text-6xl text-primary" />
+                  </div>
                 </a>
+                <div className="p-6">
+                  <h3 className="text-lg font-medium mb-3 text-white">Word Dictionary Project in C++</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
+                </div>
               </motion.div>
             </div>
           </div>

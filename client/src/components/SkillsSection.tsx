@@ -43,15 +43,14 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const webSkills = [
+  "Spring Boot",
+  "Angular",
   "React",
   "Node.js",
   "JavaScript",
   "TypeScript",
   "SQL",
-  "MySQL",
   "OpenJDK",
-  "Spring Boot",
-  "Angular",
   "Git",
   "HTML5",
   "Tailwind CSS",
