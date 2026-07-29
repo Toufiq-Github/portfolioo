@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import type { Project } from "@shared/schema";
 
 interface ProjectCardProps {
-  project: Project;
+  project: Project & { secondaryGithubUrl?: string };
   index: number;
 }
 
@@ -54,7 +54,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 pt-4 justify-center md:justify-start">
+        <div className="flex flex-wrap items-center gap-4 pt-4 justify-center md:justify-start">
           {project.githubUrl && (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button 
@@ -63,7 +63,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 className="rounded-full border-white/20 hover:border-primary hover:bg-primary/10 transition-all flex items-center gap-2"
               >
                 <Github className="w-5 h-5" />
-                Code
+                {project.secondaryGithubUrl ? "Frontend" : "Code"}
+              </Button>
+            </a>
+          )}
+          {project.secondaryGithubUrl && (
+            <a href={project.secondaryGithubUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Button 
+                variant="outline"
+                size="lg"
+                className="rounded-full border-white/20 hover:border-primary hover:bg-primary/10 transition-all flex items-center gap-2"
+              >
+                <Github className="w-5 h-5" />
+                Backend
               </Button>
             </a>
           )}

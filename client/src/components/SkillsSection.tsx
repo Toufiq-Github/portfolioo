@@ -47,7 +47,6 @@ const webSkills = [
   "Node.js",
   "JavaScript",
   "TypeScript",
-  "MongoDB",
   "SQL",
   "MySQL",
   "OpenJDK",

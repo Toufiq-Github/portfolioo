@@ -33,6 +33,27 @@ const staticProjects = [
     liveUrl: "",
     order: 3,
   },
+  {
+    id: 4,
+    title: "Document Management System",
+    description: "A secure full-stack document management solution for organizing files, managing access, and streamlining collaboration with role-based workflows.",
+    techStack: ["Spring Boot", "Angular", "PostgreSQL", "Spring Security", "JWT", "REST APIs"],
+    imageUrl: "DMS.png",
+    githubUrl: "https://github.com/Toufiq-Github/sms-frontend",
+    secondaryGithubUrl: "https://github.com/Toufiq-Github/sms-backend",
+    liveUrl: "",
+    order: 4,
+  },
+  {
+    id: 5,
+    title: "TeamSync",
+    description: "A real-time collaboration platform built for professional communication with modern UI, live interactions, and AI-assisted features.",
+    techStack: ["Next.js 15", "React 19", "TypeScript", "Firebase", "Firestore", "Google Genkit", "Tailwind CSS"],
+    imageUrl: "TeamSync.png",
+    githubUrl: "https://github.com/Toufiq-Github/CodeAlpha-Real-Time-Communication-App",
+    liveUrl: "https://teamsyncwithyou.vercel.app/",
+    order: 5,
+  },
 ];
 
 const staticTimeline = [

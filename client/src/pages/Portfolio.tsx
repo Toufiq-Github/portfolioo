@@ -13,13 +13,15 @@ import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt
 import ecommercePhoto from "@assets/Ecommerce_1772049675240.png";
 import retinaPhoto from "@assets/retina_1772049675238.png";
 import promptRefinerPhoto from "@assets/PromptRefiner.png";
-import dictionaryThumb from "@assets/dic_1772288792898.png";
-import hangmanThumb from "@assets/360_F_511071154_7bfMnKC9wucqHKyDQjYEjJs7qKcfZh7W_1772135739870.jpg";
+import dmsThumb from "@assets/DMS Thumb (2).png";
+import teamsyncThumb from "@assets/Teamsyncthumb (2).png";
 
 const assetMap: Record<string, string> = {
   "Ecommerce.png": ecommercePhoto,
   "retina.png": retinaPhoto,
   "PromptRefiner.png": promptRefinerPhoto,
+  "DMS.png": dmsThumb,
+  "TeamSync.png": teamsyncThumb,
 };
 
 export default function Portfolio() {
@@ -66,9 +68,6 @@ export default function Portfolio() {
                   <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight text-white">
                     I’m a CSE graduate with experience in full-stack development, AI, machine learning, deep learning, and data science.
                   </h2>
-                  <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
-                    I’m <span className="text-white font-semibold">Shafaeat Hasan Toufiq</span>, a Computer Science & Engineering graduate from <span className="text-primary font-medium">East West University</span>, Dhaka. I specialize in full-stack development, data science, and machine learning, and I enjoy turning complex technical challenges into polished, user-centered solutions.
-                  </p>
                 </div>
 
                 <div className="grid gap-8 xl:grid-cols-[1.4fr_0.9fr] items-start">
@@ -247,36 +246,20 @@ export default function Portfolio() {
               YouTube <span className="text-primary">Content</span>
             </motion.h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <motion.div 
                 whileHover={{ y: -10 }}
                 className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
               >
-                <a href="https://www.youtube.com/watch?v=vb7j0lC1Z6s&t=7s" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
-                  <img src={dictionaryThumb} alt="Word Dictionary" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
+                <a href="https://www.youtube.com/watch?v=P1jIXIShgTk" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
+                  <img src={dmsThumb} alt="Document Management System" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaYoutube className="text-6xl text-primary" />
                   </div>
                 </a>
                 <div className="p-6">
-                  <h3 className="text-lg font-medium mb-3 text-white">Word Dictionary Project in C++</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">Implementation of a dictionary using Binary Search Tree (BST) data structure in C++.</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl group max-w-sm mx-auto w-full"
-              >
-                <a href="https://www.youtube.com/watch?v=NDYY6tix2-Q&t=1s" target="_blank" rel="noopener noreferrer" className="aspect-video relative cursor-pointer block">
-                  <img src={hangmanThumb} alt="Hangman Game" className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700" />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FaYoutube className="text-6xl text-primary" />
-                  </div>
-                </a>
-                <div className="p-6">
-                  <h3 className="text-lg font-medium mb-3 text-white">Hangman Game Project using C</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">Implementation of the classic Hangman word guessing game in C programming language.</p>
+                  <h3 className="text-lg font-medium mb-3 text-white">Document Management System Walkthrough</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">A full-stack system overview covering the architecture, workflow, and implementation highlights for the DMS project.</p>
                 </div>
               </motion.div>
 
