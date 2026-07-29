@@ -16,7 +16,7 @@ const staticProjects = [
   },
   {
     id: 2,
-    title: "TeamSync",
+    title: "TeamSync – A Real Time Communication Platform",
     description: "A real-time collaboration platform built for professional communication with modern UI, live interactions, and AI-assisted features.",
     techStack: ["Next.js 15", "React 19", "TypeScript", "Firebase", "Firestore", "Google Genkit", "Tailwind CSS"],
     imageUrl: "TeamSync.png",

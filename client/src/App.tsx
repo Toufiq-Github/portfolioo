@@ -20,13 +20,19 @@ function Router() {
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1,
       smoothWheel: true,
-      touchMultiplier: 2,
-      wheelMultiplier: 1,
+      touchMultiplier: 1.8,
+      wheelMultiplier: 1.08,
+      normalizeWheel: true,
+      gestureOrientation: "vertical",
+      syncTouch: false,
       infinite: false,
     });
+
+    document.documentElement.classList.add("lenis", "lenis-smooth");
 
     let frame = 0;
     const raf = (time: number) => {
@@ -42,6 +48,7 @@ function App() {
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", handleResize);
+      document.documentElement.classList.remove("lenis", "lenis-smooth");
       lenis.destroy();
     };
   }, []);

@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { 
   SiReact, SiNodedotjs, SiTypescript, SiPython, SiJavascript, SiGit,
@@ -67,23 +67,45 @@ export function SkillsSection() {
   const [activeTab, setActiveTab] = useState<"web" | "data">("web");
   const [rotation, setRotation] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const sectionProgress = useMotionValue(0);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  useEffect(() => {
+    let raf = 0;
 
-  const parallaxY = useSpring(useTransform(scrollYProgress, [0, 1], [16, -16]), {
+    const updateProgress = () => {
+      if (!sectionRef.current) {
+        return;
+      }
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const elementHeight = rect.height || viewportHeight;
+      const distance = viewportHeight + elementHeight;
+      const progress = distance > 0 ? (viewportHeight - rect.top) / distance : 0;
+      sectionProgress.set(Math.min(1, Math.max(0, progress)));
+      raf = window.requestAnimationFrame(updateProgress);
+    };
+
+    raf = window.requestAnimationFrame(updateProgress);
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, [sectionProgress]);
+
+  const parallaxY = useSpring(useTransform(sectionProgress, [0, 1], [16, -16]), {
     stiffness: 80,
     damping: 24,
     mass: 0.8,
   });
-  const parallaxOpacity = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]), {
+  const parallaxOpacity = useSpring(useTransform(sectionProgress, [0, 0.5, 1], [0.8, 1, 0.8]), {
     stiffness: 70,
     damping: 24,
     mass: 0.8,
   });
-  const orbitScale = useSpring(useTransform(scrollYProgress, [0, 1], [0.985, 1.01]), {
+  const orbitScale = useSpring(useTransform(sectionProgress, [0, 1], [0.985, 1.01]), {
     stiffness: 70,
     damping: 24,
     mass: 0.8,
@@ -104,7 +126,7 @@ export function SkillsSection() {
     >
       <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(0,0,0,0.04),transparent_40%,rgba(0,0,0,0.04))]" />
       <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10 py-8 md:py-12">
-        <motion.div style={{ y: parallaxY, opacity: parallaxOpacity }} className="mb-8">
+        <motion.div style={{ y: parallaxY, opacity: parallaxOpacity }} className="mb-8 will-change-transform">
           <span className="flex items-center gap-2 text-black font-medium mb-2">
             <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             Skills
@@ -119,7 +141,7 @@ export function SkillsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-32 items-center">
           {/* Left Side: Overlapping Palettes */}
-          <motion.div style={{ y: parallaxY }} className="relative min-h-[400px] md:min-h-[450px] flex items-center justify-start">
+          <motion.div style={{ y: parallaxY }} className="relative min-h-[400px] md:min-h-[450px] flex items-center justify-start will-change-transform">
             <div className="w-full max-w-md relative mx-auto lg:mx-0">
               {/* Tab Header Controls */}
               <div className="flex gap-4 md:gap-6 mb-8 border-b border-gray-100 pb-4 justify-center lg:justify-start">
@@ -211,7 +233,7 @@ export function SkillsSection() {
           </motion.div>
 
           {/* Right Side: Circular Orbiting Icons */}
-          <motion.div style={{ y: parallaxY, scale: orbitScale }} className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
+          <motion.div style={{ y: parallaxY, scale: orbitScale }} className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center will-change-transform">
              <div className="absolute inset-0 bg-gray-100/70 rounded-full blur-[90px] -z-10" />
              <div className="absolute inset-8 rounded-full border border-gray-200/70" />
              <div className="absolute inset-20 rounded-full border border-dashed border-gray-300/70" />

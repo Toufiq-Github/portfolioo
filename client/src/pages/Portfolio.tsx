@@ -4,8 +4,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -29,11 +29,28 @@ export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
   const { data: timeline, isLoading: timelineLoading } = useTimeline();
   const skillsRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: skillsScrollProgress } = useScroll({
-    target: skillsRef,
-    offset: ["start start", "end start"]
-  });
-  const skillsY = useSpring(useTransform(skillsScrollProgress, [0, 1], ["0%", "45%"]), {
+  const scrollProgress = useMotionValue(0);
+
+  useEffect(() => {
+    let raf = 0;
+
+    const updateProgress = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      scrollProgress.set(Math.min(1, Math.max(0, progress)));
+      raf = window.requestAnimationFrame(updateProgress);
+    };
+
+    raf = window.requestAnimationFrame(updateProgress);
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, [scrollProgress]);
+
+  const skillsY = useSpring(useTransform(scrollProgress, [0, 1], ["0%", "45%"]), {
     stiffness: 90,
     damping: 24,
     mass: 0.8,
