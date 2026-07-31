@@ -19,6 +19,14 @@ function Router() {
 
 function App() {
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isTouchDevice) {
+      document.documentElement.classList.remove("lenis", "lenis-smooth");
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
