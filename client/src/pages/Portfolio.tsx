@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,7 +75,7 @@ export default function Portfolio() {
           <Hero />
 
           {/* About Section */}
-          <section id="about" className="section-anchor py-20 relative overflow-hidden">
+          <section id="about" className="section-anchor relative overflow-hidden pt-20 pb-32 md:pt-24 md:pb-40">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -133,9 +133,10 @@ export default function Portfolio() {
                         <motion.article
                           key={point.id}
                           layout
+                          transition={{ layout: { duration: 0.42, ease: [0.22, 1, 0.36, 1] } }}
                           onMouseEnter={() => setActiveAboutPoint(point.id)}
                           onMouseLeave={() => setActiveAboutPoint(null)}
-                          className={`rounded-2xl border bg-white/[0.035] p-6 backdrop-blur-xl transition-colors duration-300 ${isOpen ? "border-primary/50 bg-white/[0.06]" : "border-white/10 hover:border-white/20"}`}
+                          className={`rounded-xl border bg-white/[0.02] p-5 backdrop-blur-xl transition-[border-color,background-color] duration-500 ease-out ${isOpen ? "border-primary/25 bg-white/[0.04]" : "border-white/[0.07] hover:border-white/[0.14]"}`}
                         >
                           <button
                             type="button"
@@ -146,19 +147,24 @@ export default function Portfolio() {
                             className="flex min-h-10 w-full items-center justify-between gap-4 text-left text-lg font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-black"
                           >
                             <span>{point.title}</span>
-                            <ChevronDown className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                            <ChevronDown className={`h-5 w-5 shrink-0 text-primary/80 transition-transform duration-500 ease-out ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
                           </button>
+                          <AnimatePresence initial={false}>
                           {isOpen && (
-                            <motion.p
+                            <motion.div
                               id={`about-detail-${point.id}`}
-                              initial={{ opacity: 0, y: 6 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="mt-4 border-t border-white/10 pt-4 text-sm leading-relaxed text-muted-foreground md:text-base"
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                              className="overflow-hidden"
                             >
-                              {point.detail}
-                            </motion.p>
+                              <p className="mt-4 border-t border-white/[0.08] pt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+                                {point.detail}
+                              </p>
+                            </motion.div>
                           )}
+                          </AnimatePresence>
                         </motion.article>
                       );
                     })}
