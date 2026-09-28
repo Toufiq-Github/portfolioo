@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] -z-10" />
 
-      <div className="container mx-auto px-12 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto px-6 sm:px-10 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-12">
         
         {/* Text Content */}
         <motion.div 
@@ -23,11 +23,11 @@ export function Hero() {
           <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
             👋 Hello, I'm
           </span>
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 tracking-tight text-white">
             Shafaeat Hasan Toufiq
           </h1>
           
-          <div className="text-lg md:text-xl font-medium text-muted-foreground mb-6 h-[60px] md:h-auto">
+          <div className="text-base sm:text-lg md:text-xl font-medium text-muted-foreground mb-6 min-h-[60px] md:min-h-0">
             <TypeAnimation
               sequence={[
                 'Full-Stack Software Developer',
@@ -43,7 +43,7 @@ export function Hero() {
             />
           </div>
 
-          <p className="text-muted-foreground text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
             I build exceptional digital experiences that are fast, accessible, and visually stunning. Passionate about turning complex problems into simple, beautiful solutions.
           </p>
 
@@ -88,7 +88,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex-1 flex justify-center md:justify-end"
         >
-          <div className="relative w-72 h-72 md:w-96 md:h-96">
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-[2rem] rotate-6 opacity-20 animate-pulse" />
             <div className="absolute inset-0 bg-card rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
               <img 

@@ -134,8 +134,12 @@ export default function Portfolio() {
                           key={point.id}
                           layout
                           transition={{ layout: { duration: 0.42, ease: [0.22, 1, 0.36, 1] } }}
-                          onMouseEnter={() => setActiveAboutPoint(point.id)}
-                          onMouseLeave={() => setActiveAboutPoint(null)}
+                          onPointerEnter={(event) => {
+                            if (event.pointerType === "mouse") setActiveAboutPoint(point.id);
+                          }}
+                          onPointerLeave={(event) => {
+                            if (event.pointerType === "mouse") setActiveAboutPoint(null);
+                          }}
                           className={`rounded-xl border bg-white/[0.02] p-5 backdrop-blur-xl transition-[border-color,background-color] duration-500 ease-out ${isOpen ? "border-primary/25 bg-white/[0.04]" : "border-white/[0.07] hover:border-white/[0.14]"}`}
                         >
                           <button
@@ -143,7 +147,7 @@ export default function Portfolio() {
                             aria-expanded={isOpen}
                             aria-controls={`about-detail-${point.id}`}
                             onFocus={() => setActiveAboutPoint(point.id)}
-                            onClick={() => setActiveAboutPoint(isOpen ? null : point.id)}
+                            onClick={() => setActiveAboutPoint(point.id)}
                             className="flex min-h-10 w-full items-center justify-between gap-4 text-left text-lg font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-black"
                           >
                             <span>{point.title}</span>
@@ -176,8 +180,8 @@ export default function Portfolio() {
         </div>
 
         {/* Skills Section - Parallax Background */}
-        <div ref={skillsRef} className="relative h-screen z-0 overflow-hidden bg-white">
-          <motion.div style={{ y: skillsY }} className="w-full h-full flex items-center justify-center">
+        <div ref={skillsRef} className="relative min-h-screen lg:h-screen z-0 bg-white">
+          <motion.div style={{ y: skillsY }} className="w-full min-h-screen lg:h-full flex items-center justify-center">
             <SkillsSection />
           </motion.div>
         </div>
@@ -224,9 +228,9 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary/50 transition-all duration-500 group relative overflow-hidden"
+                  className="bg-white/5 p-6 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl hover:border-primary/50 transition-all duration-500 group relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 p-8">
+                  <div className="relative mb-5 flex justify-end md:absolute md:top-0 md:right-0 md:mb-0 md:p-8">
                     <span className="px-4 py-1.5 bg-primary/10 rounded-full text-primary border border-primary/20 font-medium text-sm">2023 — Present</span>
                   </div>
 

@@ -122,7 +122,7 @@ export function SkillsSection() {
     <section
       ref={sectionRef}
       id="skills"
-      className="w-full h-full bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.05),_transparent_60%)] overflow-hidden relative flex items-center justify-center"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.05),_transparent_60%)] lg:h-full"
     >
       <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(0,0,0,0.04),transparent_40%,rgba(0,0,0,0.04))]" />
       <div className="container mx-auto px-6 md:px-12 lg:px-32 relative z-10 py-8 md:py-12">

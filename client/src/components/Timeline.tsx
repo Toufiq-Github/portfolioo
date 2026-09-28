@@ -30,8 +30,8 @@ export function Timeline({ items }: TimelineProps) {
               <div className="absolute left-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-black border-2 border-primary rounded-full z-10 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
 
               {/* Content Card (Ash Glassy) */}
-              <div className={`w-full md:w-[calc(50%-2.5rem)] ml-12 md:ml-0 ${isLeft ? "md:text-right" : "md:text-left"}`}>
-                <div className="bg-ash/20 border border-ash/30 p-8 rounded-[2.5rem] hover:border-primary/50 transition-all duration-500 shadow-2xl backdrop-blur-xl group">
+              <div className={`ml-14 w-[calc(100%-3.5rem)] md:ml-0 md:w-[calc(50%-2.5rem)] ${isLeft ? "md:text-right" : "md:text-left"}`}>
+                <div className="bg-ash/20 border border-ash/30 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] hover:border-primary/50 transition-all duration-500 shadow-2xl backdrop-blur-xl group">
                   <div className={`flex items-center gap-2 mb-4 ${isLeft ? "md:justify-end" : "md:justify-start"}`}>
                     <span className="text-xs font-bold tracking-widest text-primary uppercase bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
                       {item.period}
