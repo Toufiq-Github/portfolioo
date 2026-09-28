@@ -5,8 +5,8 @@ import { SkillsSection } from "@/components/SkillsSection";
 import { Timeline } from "@/components/Timeline";
 import { useProjects, useTimeline } from "@/hooks/use-portfolio";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { Loader2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaYoutube, FaGithub, FaLinkedin, FaFacebook, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
@@ -29,6 +29,7 @@ export default function Portfolio() {
   const { data: projects, isLoading: projectsLoading } = useProjects();
   const { data: timeline, isLoading: timelineLoading } = useTimeline();
   const skillsRef = useRef<HTMLDivElement>(null);
+  const [activeAboutPoint, setActiveAboutPoint] = useState<string | null>(null);
   const scrollProgress = useMotionValue(0);
 
   useEffect(() => {
@@ -83,55 +84,84 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full"
               >
-                <div className="mx-auto mb-12 max-w-4xl text-center">
+                <div className="grid items-start gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:gap-16">
+                  <div className="xl:sticky xl:top-28">
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-primary shadow-sm shadow-primary/10">
                     About Me
                   </span>
-                  <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight text-white leading-tight">
+                  <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
                     I’m a Computer Science graduate with practical experience in full-stack development, Data Science, and AI/ML research.
                   </h2>
-                </div>
-
-                <div className="grid gap-8 xl:grid-cols-[1.4fr_0.9fr] items-start">
-                  <div className="space-y-6">
-                    <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur-xl">
-                      <h3 className="text-3xl font-semibold text-white mb-6">Professional Overview</h3>
-                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                        I’m an ambitious developer with strong fundamentals in software engineering, systems design, and modern web architecture. I build scalable applications using clean code, thoughtful structure, and practical technologies that align well with product goals.
-                      </p>
-                    </div>
-
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl">
-                        <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Development</p>
-                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                          Passionate about building scalable web applications with clean architecture and performance-first design.
-                        </p>
-                      </div>
-                      <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl">
-                        <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Research & Learning</p>
-                        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                          Continuously exploring machine learning, computer vision, and explainable AI to connect research with real-world projects.
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
-                  <div className="space-y-6">
-                    <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur-xl">
-                      <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Academic Journey</p>
-                      <h3 className="text-2xl font-semibold text-white mb-3">East West University</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        Completed an undergraduate degree in Computer Science & Engineering, gaining strong theoretical and practical skills across software engineering, data structures, algorithms, databases, and system design.
-                      </p>
-                    </div>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {[
+                      {
+                        id: "overview",
+                        title: "Professional Overview",
+                        detail: "I’m an ambitious developer with strong fundamentals in software engineering, systems design, and modern web architecture. I build scalable applications using clean code, thoughtful structure, and practical technologies that align well with product goals.",
+                      },
+                      {
+                        id: "academic",
+                        title: "Academic Journey",
+                        detail: "East West University. Completed an undergraduate degree in Computer Science & Engineering, gaining strong theoretical and practical skills across software engineering, data structures, algorithms, databases, and system design.",
+                      },
+                      {
+                        id: "development",
+                        title: "Software Development",
+                        detail: "Passionate about building scalable web applications with clean architecture and performance-first design.",
+                      },
+                      {
+                        id: "research",
+                        title: "Research & Learning",
+                        detail: "Continuously exploring machine learning, computer vision, and explainable AI to connect research with real-world projects.",
+                      },
+                      {
+                        id: "strategies",
+                        title: "Core Strategies",
+                        detail: "I excel in Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, and System Design. I’m motivated by innovation and solving meaningful problems.",
+                      },
+                      {
+                        id: "api",
+                        title: "API Engineering",
+                        detail: "Designing high-throughput APIs and robust server-side logic using modern Java and Spring ecosystems.",
+                      },
+                    ].map((point) => {
+                      const isOpen = activeAboutPoint === point.id;
 
-                    <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-10 shadow-2xl backdrop-blur-xl">
-                      <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Core Strengths</p>
-                      <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                        I excel in Object-Oriented Programming, Data Structures & Algorithms, Database Systems, Computer Networks, and System Design. I’m motivated by innovation and solving meaningful problems.
-                      </p>
-                    </div>
+                      return (
+                        <motion.article
+                          key={point.id}
+                          layout
+                          onMouseEnter={() => setActiveAboutPoint(point.id)}
+                          onMouseLeave={() => setActiveAboutPoint(null)}
+                          className={`rounded-2xl border bg-white/[0.035] p-6 backdrop-blur-xl transition-colors duration-300 ${isOpen ? "border-primary/50 bg-white/[0.06]" : "border-white/10 hover:border-white/20"}`}
+                        >
+                          <button
+                            type="button"
+                            aria-expanded={isOpen}
+                            aria-controls={`about-detail-${point.id}`}
+                            onFocus={() => setActiveAboutPoint(point.id)}
+                            onClick={() => setActiveAboutPoint(isOpen ? null : point.id)}
+                            className="flex min-h-10 w-full items-center justify-between gap-4 text-left text-lg font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                          >
+                            <span>{point.title}</span>
+                            <ChevronDown className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                          </button>
+                          {isOpen && (
+                            <motion.p
+                              id={`about-detail-${point.id}`}
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="mt-4 border-t border-white/10 pt-4 text-sm leading-relaxed text-muted-foreground md:text-base"
+                            >
+                              {point.detail}
+                            </motion.p>
+                          )}
+                        </motion.article>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>
